@@ -1,0 +1,27 @@
+name: Docker Image CI - gdal_dev_python
+on:
+  workflow_dispatch: null
+  schedule:
+    - cron: '0 0,17 * * *'
+  push:
+    paths: ['dockerfiles/gdal_dev_python.Dockerfile', '.github/workflows/docker-gdal_dev_python.yml']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'mdsumner/gdal-builds'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the (gdal_dev_python) Docker image
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker build -f dockerfiles/gdal_dev_python.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal_dev_python
+      - name: Publish (gdal_dev_python)
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker push ghcr.io/mdsumner/gdal-builds:gdal_dev_python
+
