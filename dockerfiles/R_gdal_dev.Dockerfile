@@ -18,4 +18,4 @@ RUN rig add release
 
 RUN Rscript -e "pak::pak('devtools')"
 
-RUN Rscript -e "devtools::install_github(c('rspatial/terra', 'paleolimbot/wk', 'hypertidy/PROJ', 'hypertidy/vapour'))"
+RUN Rscript -e "xs <- c('rspatial/terra', 'paleolimbot/wk', 'paleolimbot/geos', 'hypertidy/PROJ', 'hypertidy/vapour', 'reticulate'); devtools::install_github(xs)"
