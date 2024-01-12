@@ -10,7 +10,7 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && cd gdal \
     && mkdir build \
     && cd build \
-    &&  cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Debug -DPython_LOOKUP_VERSION=3.10.13 -DENABLE_TESTS=NO \
+    &&  cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=NO \
     && make -j$(nproc) \
     && make install \
     && cd ../.. \
@@ -18,4 +18,4 @@ RUN git clone https://github.com/osgeo/gdal.git \
 
 RUN apt update \
    && apt install python3-pip \
-   && python3 -m pip install odc-geo pyproj rasterio rioxarray stackstac xarray --no-binary ":all:"
+   && python3 -m pip install matplotlib  netCDF4 h5netcdf scipy zarr fsspec cftime stackstac xarray odc-geo pyproj rasterio rioxarray --no-binary ":all:"
