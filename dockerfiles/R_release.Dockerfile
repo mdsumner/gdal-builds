@@ -1,4 +1,4 @@
-FROM docker ghcr.io/mdsumner/gdal-builds:gdal_trunk
+FROM  ghcr.io/mdsumner/gdal-builds:gdal_trunk
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
