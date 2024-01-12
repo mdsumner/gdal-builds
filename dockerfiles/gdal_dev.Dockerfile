@@ -16,4 +16,6 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && cd ../.. \
     && ldconfig
 
-
+RUN apt update \
+   && apt install python3-pip \
+   && python3 -m pip install odc-geo pyproj rasterio rioxarray stackstac xarray --no-binary ":all:"

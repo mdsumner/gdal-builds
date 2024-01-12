@@ -1,6 +1,8 @@
 name: Docker Image CI - gdal_dev
 on:
   workflow_dispatch: null
+  schedule:
+    - cron: '0 0,17 * * *'
   push:
     paths: ['dockerfiles/gdal_dev.Dockerfile', '.github/workflows/docker-gdal_dev.yml']
 jobs:
