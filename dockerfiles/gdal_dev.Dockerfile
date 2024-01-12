@@ -13,6 +13,7 @@ RUN git clone https://github.com/osgeo/gdal.git \
     &&  cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Debug -DPython_LOOKUP_VERSION=3.10.13 -DENABLE_TESTS=NO \
     && make -j$(nproc) \
     && make install \
-    && cd ../..
+    && cd ../.. \
+    && ldconfig
 
 
