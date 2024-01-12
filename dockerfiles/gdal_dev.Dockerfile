@@ -17,6 +17,6 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && ldconfig
 
 RUN apt update \
-   && apt install python3-pip \
-   && python3 -m pip install matplotlib  netCDF4 h5netcdf scipy zarr fsspec cftime stackstac xarray  \
-   && python3 -m pip install odc-geo pyproj rasterio rioxarray --no-binary ":all:"
+   && apt install python3-pip
+   #&& python3 -m pip install matplotlib  netCDF4 h5netcdf scipy zarr fsspec cftime stackstac xarray  \
+   #&& python3 -m pip install odc-geo pyproj rasterio rioxarray --no-binary ":all:"
