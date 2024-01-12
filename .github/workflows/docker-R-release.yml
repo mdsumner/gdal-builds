@@ -1,0 +1,25 @@
+name: Docker Image CI - latest
+on:
+  workflow_dispatch: null
+  push:
+    paths: ['dockerfiles/R_release.Dockerfile', '.github/workflows/docker-R-release.yml']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'mdsumner/gdal-builds'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the (R release on GDAL trunk) Docker image
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker build -f dockerfiles/R_release.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:R_release_on_GDAL
+      - name: Publish (R release on GDAL trunk)
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker push ghcr.io/mdsumner/gdal-builds:R_release_on_GDAL
+
