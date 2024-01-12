@@ -16,10 +16,10 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - name: Build the (latest) Docker image
+      - name: Build the (gdal_trunk) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker build -f dockerfiles/gdal_trunk.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal_trunk
-      - name: Publish (latest)
+      - name: Publish (gdal_trunk)
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker push ghcr.io/mdsumner/gdal-builds:latest
+        run: docker push ghcr.io/mdsumner/gdal-builds:gdal_trunk
 
