@@ -1,0 +1,25 @@
+name: Docker Image CI - latest
+on:
+  workflow_dispatch: null
+  push:
+    paths: ['dockerfiles/gdal_trunk.Dockerfile', '.github/workflows/docker-latest.yml']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'mdsumner/gdal-builds'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the (latest) Docker image
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker build -f dockerfiles/gdal_trunk.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal_trunk
+      - name: Publish (latest)
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker push ghcr.io/mdsumner/gdal-builds:latest
+
