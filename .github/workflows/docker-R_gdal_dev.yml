@@ -1,8 +1,10 @@
-name: Docker Image CI - latest
+name: Docker Image CI - R_gdal_dev
 on:
   workflow_dispatch: null
+  schedule:
+    - cron: '0 0,18 * * *'
   push:
-    paths: ['dockerfiles/R_release.Dockerfile', '.github/workflows/docker-R-release.yml']
+    paths: ['dockerfiles/R_gdal_dev.Dockerfile', '.github/workflows/docker-R_gdal_dev.yml']
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,10 +18,10 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - name: Build the (R release on GDAL trunk) Docker image
+      - name: Build the (R_gdal_dev) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/R_release.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:R_release_on_GDAL
-      - name: Publish (R release on GDAL trunk)
+        run: docker build -f dockerfiles/R_gdal_dev.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:R_gdal_dev
+      - name: Publish (R_gdal_dev)
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker push ghcr.io/mdsumner/gdal-builds:R_release_on_GDAL
+        run: docker push ghcr.io/mdsumner/gdal-builds:R_gdal_dev
 
