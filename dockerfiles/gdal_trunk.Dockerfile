@@ -1,7 +1,7 @@
 FROM ghcr.io/osgeo/gdal-deps:ubuntu22.04-master
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
-      org.opencontainers.image.source="https://github.com/mdsumner/proj-builds" \
+      org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
       org.opencontainers.image.vendor="Hypertidy Project" \
       org.opencontainers.image.description="A build of GDAL and R latest for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
