@@ -29,5 +29,5 @@ RUN python3 -m pip install pyproj
 
 RUN python3 -m pip install  pytz tzdata pandas xarray
 ## stackstac pulls in dask and  zipp, toolz, pyyaml, locket, cloudpickle, partd, importlib-metadata
-RUN python3 -m pip install odc-geo  rioxarray stackstac --no-binary ":all:"
-
+RUN python3 -m pip install odc-geo  rioxarray  --no-binary ":all:"
+RUN python3 -m pip install stackstac
