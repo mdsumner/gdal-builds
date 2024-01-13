@@ -18,3 +18,5 @@ RUN rig add release
 RUN Rscript -e "pak::pak(c('devtools', 'reticulate'))"
 
 RUN Rscript -e "xs <- c('rspatial/terra', 'paleolimbot/wk', 'paleolimbot/geos', 'hypertidy/PROJ', 'hypertidy/vapour'); devtools::install_github(xs)"
+
+RUN export RETICULATE_PYTHON=/usr/bin/python3
