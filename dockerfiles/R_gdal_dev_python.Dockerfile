@@ -13,7 +13,6 @@ RUN  sh -c 'echo "deb http://rig.r-pkg.org/deb rig main" > /etc/apt/sources.list
 RUN  apt update
 RUN  apt install r-rig
 
-
 RUN rig add release
 
 RUN Rscript -e "pak::pak(c('devtools', 'reticulate'))"
