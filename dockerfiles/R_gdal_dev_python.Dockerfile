@@ -18,4 +18,3 @@ RUN  curl -L https://rig.r-pkg.org/deb/rig.gpg -o /etc/apt/trusted.gpg.d/rig.gpg
      && rig add release \
      && Rscript -e "pak::pak(c('devtools', 'reticulate'))" \
      && Rscript -e "xs <- c('rspatial/terra', 'paleolimbot/wk', 'paleolimbot/geos', 'hypertidy/PROJ', 'hypertidy/vapour', 'hypertidy/ximage', 'hypertidy/sds', 'hypertidy/dsn', 'hypertidy/whatarelief', 'hypertidy/vaster', 'hypertidy/grout', 'hypertidy/reproj', 'hypertidy/quad'); devtools::install_github(xs)"
-
