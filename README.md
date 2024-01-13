@@ -16,6 +16,8 @@ The goal of gdal-builds is to just me learning to use docker. I build
 - gdal_dev_python, this is me trying to figure out how to get that list
   of python packages installed from source and using my build (and I
   might update netcdf, hdf5, etc as well)
+- R_gdal_dev_python, this is the R one above folded over gdal_dev_python
+  (not sure if this is the right way yet)
 
 You can do this to get into an interactive session
 
