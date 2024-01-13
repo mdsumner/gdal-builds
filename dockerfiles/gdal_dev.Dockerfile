@@ -14,5 +14,8 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && make -j$(nproc) \
     && make install \
     && cd ../.. \
-    && ldconfig
+    && ldconfig \
+    && find ./gdal/build/ -name "*.o" -exec rm -rf {} \; \
+    && find ./gdal/build/ -name "*.so" -exec rm -rf {} \; \
+    && find ./gdal/build/ -name "*libgdal.so*" -exec rm -rf {} \;
 
