@@ -9,5 +9,5 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 RUN apt-get install gdebi-core -y \
      && wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.0-369-amd64.deb \
-     && gdebi rstudio-server-2023.12.0-369-amd64.deb
+     && gdebi rstudio-server-2023.12.0-369-amd64.deb -n
 
