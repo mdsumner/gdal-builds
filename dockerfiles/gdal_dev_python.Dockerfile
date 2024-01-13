@@ -20,6 +20,10 @@ RUN wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.
 RUN python3 -m pip install -r requirements-dev.txt
 
 RUN python3 -m pip install rasterio --no-binary rasterio --force-reinstall
+
+## I *think* rioxarray installs its own GEOS below, so we do this
+RUN python3 -m pip install shapely --no-binary shapely --force-reinstall
+
 ## allow pyproj to install its own PROJ (GDAL container is 8.2.1 but pyproj>3.4.1 requires 9.0.0)
 RUN python3 -m pip install pyproj
 
