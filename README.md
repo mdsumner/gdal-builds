@@ -24,6 +24,15 @@ You can do this to get into an interactive session
 See the other containers here:
 <https://github.com/mdsumner/gdal-builds/pkgs/container/gdal-builds>
 
+The `gdal_dev_python` build is very much in flux, I’m trying to get
+everything to use the installed PROJ and GDAL, but also work out when I
+care and/or when that matters. For example, I don’t really care if
+pyproj uses its own PROJ atm, I think that’s ok but odc.geo is using
+pyproj so I might care at some point.
+
+At some point I’l make R_gdal_dev dep on the python one, so I can
+reticulate all the things.
+
 All very much WIP, I can’t otherwise get rocker to do what I want yet
 (it’s kind of built in the other direction, first they layer up R base
 and get to rstudio, but I just want the libs, then R, and python, then I

@@ -12,7 +12,7 @@ RUN  apt-get update && apt-get  install python3-pip -y
 
 RUN python3 -m pip install matplotlib   cftime  scipy zarr fsspec
 RUN python3 -m pip install netCDF4 --no-binary netCDF4 --force-reinstall
-RUN python3 -m pip install netCDF4 --no-binary h5netcdf --force-reinstall
+RUN python3 -m pip install h5netcdf --no-binary h5netcdf --force-reinstall
 
 RUN wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt
 RUN wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt
@@ -20,9 +20,9 @@ RUN wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.
 RUN python3 -m pip install -r requirements-dev.txt
 
 RUN python3 -m pip install rasterio --no-binary rasterio --force-reinstall
+## allow pyproj to install its own PROJ (GDAL container is 8.2.1 but pyproj>3.4.1 requires 9.0.0)
+RUN python3 -m pip install pyproj
 
-
-## get dev-requirements for rasterio and install deps from there first
-#   && python3 -m pip install  xarray odc-geo pyproj rasterio rioxarray --no-binary ":all:" \
-#   && python3 -m pip install  stackstac --no-binary ":all:"
+RUN python3 -m pip install  pytz tzdata pandas xarray
+RUN python3 -m pip install odc-geo  rioxarray --no-binary ":all:"
 
