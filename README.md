@@ -23,6 +23,10 @@ You can do this to get into an interactive session
 
     docker run --rm -ti ghcr.io/mdsumner/gdal-builds:gdal_dev bash 
 
+IF you want `/vsicurl` then you must run with this, for example:
+
+    docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/mdsumner/gdal-builds:R_gdal_dev_python bash 
+
 See the other containers here:
 <https://github.com/mdsumner/gdal-builds/pkgs/container/gdal-builds>
 
