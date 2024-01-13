@@ -9,16 +9,13 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export RETICULATE_PYTHON=/usr/bin/python3
 
 
-RUN  curl -L https://rig.r-pkg.org/deb/rig.gpg -o /etc/apt/trusted.gpg.d/rig.gpg
+RUN rm -rf gdal/
 
-RUN  sh -c 'echo "deb http://rig.r-pkg.org/deb rig main" > /etc/apt/sources.list.d/rig.list'
-
-RUN  apt update
-RUN  apt install r-rig
-
-RUN rig add release
-
-RUN Rscript -e "pak::pak(c('devtools', 'reticulate'))"
-
-RUN Rscript -e "xs <- c('rspatial/terra', 'paleolimbot/wk', 'paleolimbot/geos', 'hypertidy/PROJ', 'hypertidy/vapour'); devtools::install_github(xs)"
+RUN  curl -L https://rig.r-pkg.org/deb/rig.gpg -o /etc/apt/trusted.gpg.d/rig.gpg \
+     && sh -c 'echo "deb http://rig.r-pkg.org/deb rig main" > /etc/apt/sources.list.d/rig.list' \
+     && apt update \
+     && apt install r-rig \
+     && rig add release \
+     && Rscript -e "pak::pak(c('devtools', 'reticulate'))" \
+     && Rscript -e "xs <- c('rspatial/terra', 'paleolimbot/wk', 'paleolimbot/geos', 'hypertidy/PROJ', 'hypertidy/vapour', 'hypertidy/ximage', 'hypertidy/sds', 'hypertidy/dsn', 'hypertidy/whatarelief', 'hypertidy/vaster', 'hypertidy/grout', 'hypertidy/reproj', 'hypertidy/quad'); devtools::install_github(xs)"
 
