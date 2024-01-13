@@ -19,6 +19,7 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt \
       &&  python3 -m pip install -r requirements-dev.txt \
+      && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
       &&  python3 -m pip install pyproj \
