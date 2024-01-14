@@ -21,10 +21,10 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       &&  python3 -m pip install -r requirements-dev.txt \
       && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
-      &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
+      &&  python3 -m pip install shapely --no-binary shapely --force-reinstall #\
       && git clone https://github.com/pyproj4/pyproj && cd pyproj && python3 -m pip install . && cd .. && rm -rf pyproj \
-      &&  python3 -m pip install fiona --no-binary fiona \
-      &&  python3 -m pip install  pytz tzdata pandas xarray \
-      && git clone https://github.com/geopandas/geopandas.git && cd geopandas && python3 -m pip install . && cd .. && rm -rf geopandas \
-      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
-      &&  python3 -m pip install stackstac --no-binary ":all:"
+#      &&  python3 -m pip install fiona --no-binary fiona \
+#      &&  python3 -m pip install  pytz tzdata pandas xarray \
+#      && git clone https://github.com/geopandas/geopandas.git && cd geopandas && python3 -m pip install . && cd .. && rm -rf geopandas \
+#      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
+#      &&  python3 -m pip install stackstac --no-binary ":all:"
