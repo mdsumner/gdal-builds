@@ -24,4 +24,3 @@ jobs:
       - name: Publish (gdal_dev_python)
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker push ghcr.io/mdsumner/gdal-builds:gdal_dev_python
-
