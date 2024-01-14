@@ -17,7 +17,6 @@ COPY scripts/install_cmake_version_proj.sh /scripts/install_cmake_version_proj.s
 
 RUN /scripts/install_cmake_version_proj.sh
 
-
 RUN git clone https://github.com/osgeo/gdal.git \
     && cd gdal \
     && mkdir build \
