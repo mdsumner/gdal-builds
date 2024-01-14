@@ -23,8 +23,7 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
-      &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall #\
-
+      &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       && git clone https://github.com/pyproj4/pyproj && cd pyproj && python3 -m pip install . && cd .. && rm -rf pyproj \
      &&  python3 -m pip install fiona --no-binary fiona \
      &&  python3 -m pip install  pytz tzdata pandas xarray \
