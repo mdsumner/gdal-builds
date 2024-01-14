@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0,17 * * *'
   push:
-    paths: ['dockerfiles/gdal_dev_python.Dockerfile', '.github/workflows/docker-gdal_dev_python.yml']
+    paths: ['dockerfiles/gdal_dev_python.Dockerfile', '.github/workflows/docker-gdal_dev_python.yml', 'scripts/install_cmake_version_proj.sh']
 jobs:
   build:
     runs-on: ubuntu-latest
