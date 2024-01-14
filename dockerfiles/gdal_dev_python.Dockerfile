@@ -12,8 +12,9 @@ RUN rm -rf gdal/
 ## pyproj: allow to install its own PROJ (GDAL container is 8.2.1 but pyproj>3.4.1 requires 9.0.0)
 ## stackstac:  pulls in dask and  zipp, toolz, pyyaml, locket, cloudpickle, partd, importlib-metadata
 ## odc-geo: pointlessly reinstalls pyproj and fails: https://gist.github.com/mdsumner/648eb84e738fbd15a0aa9869981cbebe
+## see if upgrade pip works!
 
-RUN  apt-get update && apt-get  install python3-pip -y  \
+RUN  apt-get update && apt-get  install python3-pip -y && pip3 install --upgrade pip \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
       &&  python3 -m pip install h5netcdf --no-binary h5netcdf --force-reinstall \
       &&  python3 -m pip install netCDF4 --no-binary netCDF4 --force-reinstall \
@@ -28,7 +29,6 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
      &&  python3 -m pip install fiona --no-binary fiona \
      &&  python3 -m pip install  pytz tzdata pandas xarray \
      && python3 -m pip install geopandas --no-binary geopandas
-
-#      && git clone https://github.com/geopandas/geopandas.git && cd geopandas && python3 -m pip install . && cd .. && rm -rf geopandas \
-#      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
+#      &&  python3 -m pip install odc-geo  --no-binary ":all:" \
+#      &&  python3 -m pip install rioxarray  --no-binary ":all:"
 #      &&  python3 -m pip install stackstac --no-binary ":all:"
