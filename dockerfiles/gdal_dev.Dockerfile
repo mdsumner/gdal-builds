@@ -6,6 +6,9 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.description="A build of GDAL and R latest for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
+## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
+RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
+
 RUN git clone https://github.com/osgeo/gdal.git \
     && cd gdal \
     && mkdir build \
