@@ -15,6 +15,8 @@ ENV PROJ_VERSION=9.3.1
 
 COPY scripts/install_cmake_version_proj.sh /scripts/install_cmake_version_proj.sh
 
+RUN rm -rf /build_local
+
 RUN /scripts/install_cmake_version_proj.sh
 
 RUN git clone https://github.com/osgeo/gdal.git \

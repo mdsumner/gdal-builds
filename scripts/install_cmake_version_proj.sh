@@ -97,6 +97,8 @@ cd ../..
 rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/downloaded_packages
 
+rm -rf /build_local
+
 # Check the geospatial packages
 
 echo -e "Check proj package...\n"
