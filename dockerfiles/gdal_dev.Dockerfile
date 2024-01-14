@@ -13,7 +13,7 @@ RUN apt-get update && apt-get -y upgrade
 
 ENV PROJ_VERSION=9.3.1
 
-COPY install_cmake_version_proj.sh /scripts/install_cmake_version_proj.sh
+COPY scripts/install_cmake_version_proj.sh /scripts/install_cmake_version_proj.sh
 
 RUN /scripts/install_cmake_version_proj.sh
 
