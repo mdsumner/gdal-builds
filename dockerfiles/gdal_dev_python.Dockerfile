@@ -22,7 +22,8 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
-      &&  python3 -m pip install pyproj \
+      &&  python3 -m pip install pyproj --no-binary pyproj \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
+            &&  python3 -m pip install geopandas --no-binary geopandas \
       &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
-      &&  python3 -m pip install stackstac
+      &&  python3 -m pip install stackstac --no-binary ":all:"
