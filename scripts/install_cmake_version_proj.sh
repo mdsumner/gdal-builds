@@ -91,7 +91,7 @@ cd build
 cmake ..
 cmake --build . --parallel "$CMAKE_CORES" --target install
 ldconfig
-cd /build_local
+cd ../..
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
@@ -103,7 +103,6 @@ echo -e "Check proj package...\n"
 proj
 echo -e "\nInstall PROJ, done!"
 
-Rscript -e 'install.packages(c("wk", "hunspell", "spelling", "lifecycle", "devtools"))'
 
 
 
