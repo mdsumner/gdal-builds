@@ -14,8 +14,8 @@ RUN rm -rf gdal/
 
 RUN  apt-get update && apt-get  install python3-pip -y  \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
-      &&  python3 -m pip install netCDF4 --no-binary netCDF4 --force-reinstall \
       &&  python3 -m pip install h5netcdf --no-binary h5netcdf --force-reinstall \
+      &&  python3 -m pip install netCDF4 --no-binary netCDF4 --force-reinstall \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt \
       &&  python3 -m pip install -r requirements-dev.txt \
@@ -23,6 +23,7 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
       && git clone https://github.com/pyproj4/pyproj && cd pyproj && python3 -m pip install . && cd .. && rm -rf pyproj \
+      &&  python3 -m pip install fiona --no-binary fiona \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
       &&  python3 -m pip install geopandas --no-binary geopandas
 #      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
