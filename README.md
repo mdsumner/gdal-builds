@@ -11,20 +11,20 @@ libs up to date and with R and Python packages using them in alignment.
 
 This builds:
 
-- `gdal_dev`, this is latest commit on osgeo/gdal ready to go (built
+- `gdal-dev`, this is latest commit on osgeo/gdal ready to go (built
   from their gdal_deps) but we add a recent PROJ build for pyproj
-- `gdal_dev_python`, adds python packages (we already have GDAL a.k.a.
+- `gdal-dev_python`, adds python packages (we already have GDAL a.k.a.
   osgeo)
-- `gdal_dev_python_R`, this adds R and installs packages (not complete)
+- `gdal-dev_python_R`, this adds R and installs packages (not complete)
 
 You can do this to get into an interactive session, you’ll see bleeding
 edge GDAL and very recent PROJ and geos installs.
 
-    docker run --rm -ti ghcr.io/mdsumner/gdal-builds:gdal_dev  
+    docker run --rm -ti ghcr.io/mdsumner/gdal-builds:gdal-dev  
 
 To get the whole shebang run this one:
 
-    docker run --rm -ti  ghcr.io/mdsumner/gdal-builds:gdal_dev_python_R 
+    docker run --rm -ti  ghcr.io/mdsumner/gdal-builds:gdal-dev_python_R 
 
 In there you can start R, and `install.packages` or
 `remotes::install_github`, and you can immediately do
@@ -40,12 +40,12 @@ and see that `show_versions()` of them all are in alignment (hurrah!).
 
 IF you want `/vsicurl` then you must run with this, for example:
 
-    docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/mdsumner/gdal-builds:gdal_dev_python_R 
+    docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/mdsumner/gdal-builds:gdal-dev_python_R 
 
 See the other containers here:
 <https://github.com/mdsumner/gdal-builds/pkgs/container/gdal-builds>
 
-The `gdal_dev_python` build took a while to get everything aligned -
+The `gdal-dev_python` build took a while to get everything aligned -
 upgrading pip was the missing piece in the end.
 
 All very much WIP, I can’t otherwise get rocker to do what I want yet
