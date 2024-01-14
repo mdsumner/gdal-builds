@@ -24,6 +24,6 @@ RUN  apt-get update && apt-get  install python3-pip -y  \
       &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
       && git clone https://github.com/pyproj4/pyproj && cd pyproj && python3 -m pip install . && cd .. && rm -rf pyproj \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
-      &&  python3 -m pip install geopandas --no-binary geopandas \
-      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
-      &&  python3 -m pip install stackstac --no-binary ":all:"
+      &&  python3 -m pip install geopandas --no-binary geopandas
+#      &&  python3 -m pip install odc-geo  rioxarray  --no-binary ":all:" \
+#      &&  python3 -m pip install stackstac --no-binary ":all:"
