@@ -1,4 +1,4 @@
-FROM  ghcr.io/mdsumner/gdal-builds:gdal_dev_python
+FROM  ghcr.io/mdsumner/gdal-builds:gdal-dev_python
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
