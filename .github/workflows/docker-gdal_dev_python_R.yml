@@ -20,7 +20,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the (gdal_dev_python_R) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/gdal_dev_python_R.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:R_gdal_dev_python
+        run: docker build -f dockerfiles/gdal_dev_python_R.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal_dev_python_R
       - name: Publish (gdal_dev_python_R)
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker push ghcr.io/mdsumner/gdal-builds:gdal_dev_python_R
