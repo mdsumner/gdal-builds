@@ -6,8 +6,12 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.description="A build of GDAL and R latest for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
+
+## will need to do this all properly
 ## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
 RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
+RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +
+RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
 
 RUN apt-get update && apt-get -y upgrade
 
