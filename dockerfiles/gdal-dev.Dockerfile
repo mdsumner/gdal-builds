@@ -7,14 +7,17 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
 
-## will need to do this all properly
-## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
-#RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
-#RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +
-#RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
 
 # a function to remove apt packages only if they are installed
-RUN function apt_remove() {     if dpkg -s "$@" >/dev/null 2>&1; then  apt-get remove -y "$@"; fi  } && apt_remove gdal-bin libgdal-dev libgeos-dev libproj-dev && apt-get autoremove -y
+
+RUN function apt_remove() {     if dpkg -s "$@" >/dev/null 2>&1; then  apt-get remove -y "$@"; fi  } && apt_remove libgdal-dev libgeos-dev libproj-dev \
+    && apt-get autoremove -y
+
+## will need to do this all properly
+## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
+RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
+#RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +  ## leave geos, we add PROJ and GDAL
+RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -32,8 +35,8 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && make -j$(nproc) \
     && make install \
     && cd ../.. \
-    && ldconfig \
-    &&          find ./gdal/build/ -name "*.o" -exec rm -rf {} \; \
-    &&         find ./gdal/build/ -name "*.so" -exec rm -rf {} \; \
-    && find ./gdal/build/ -name "*libgdal.so*" -exec rm -rf {} \;
+    && ldconfig #\
+   # &&          find ./gdal/build/ -name "*.o" -exec rm -rf {} \; \
+   # &&         find ./gdal/build/ -name "*.so" -exec rm -rf {} \; \
+   # && find ./gdal/build/ -name "*libgdal.so*" -exec rm -rf {} \;
 
