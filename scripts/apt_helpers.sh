@@ -18,3 +18,6 @@ function apt_remove() {
         apt-get remove -y "$@"
     fi
 }
+
+apt_remove proj-bin gdal-bin libgdal-dev libgeos-dev libproj-dev \
+    && apt-get autoremove -y

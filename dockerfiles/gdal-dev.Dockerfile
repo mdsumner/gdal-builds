@@ -11,9 +11,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 # a function to remove apt packages only if they are installed
 
 COPY scripts/apt_helpers.sh /scripts/apt_helpers.sh
-RUN source /scripts/apt_helpers.sh
-RUN apt_remove proj-bin gdal-bin libgdal-dev libgeos-dev libproj-dev \
-    && apt-get autoremove -y
+RUN /scripts/apt_helpers.sh
 
 
 ## will need to do this all properly
