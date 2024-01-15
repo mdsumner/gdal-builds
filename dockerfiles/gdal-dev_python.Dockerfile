@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.description="A build of GDAL and R latest for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
-RUN rm -rf gdal/
+RUN rm -rf /gdal
 
 ## shapely:  I *think* rioxarray installs its own GEOS below, so we do this
 ## pyproj: FIXED (build PROJ from source at required version)
