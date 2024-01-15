@@ -9,9 +9,11 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 ## will need to do this all properly
 ## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
-RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
-RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +
-RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
+#RUN find /usr -mtime +15 -name "libgdal*" -exec  rm -f {} +
+#RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +
+#RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
+
+RUN apt-get remove gdal-bin libgdal-dev libgeos-dev libproj-dev && apt-get autoremove -y
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -30,7 +32,7 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && make install \
     && cd ../.. \
     && ldconfig \
-    && find ./gdal/build/ -name "*.o" -exec rm -rf {} \; \
-    && find ./gdal/build/ -name "*.so" -exec rm -rf {} \; \
+    &&          find ./gdal/build/ -name "*.o" -exec rm -rf {} \; \
+    &&         find ./gdal/build/ -name "*.so" -exec rm -rf {} \; \
     && find ./gdal/build/ -name "*libgdal.so*" -exec rm -rf {} \;
 
