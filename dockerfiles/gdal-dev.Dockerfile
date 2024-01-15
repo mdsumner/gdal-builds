@@ -10,8 +10,9 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 # a function to remove apt packages only if they are installed
 
-RUN function apt_remove() {     if dpkg -s "$@" >/dev/null 2>&1; then  apt-get remove -y "$@"; fi  } && apt_remove libgdal-dev libgeos-dev libproj-dev \
-    && apt-get autoremove -y
+RUN function apt_remove() {     if dpkg -s "$@" >/dev/null 2>&1; then  apt-get remove -y "$@"; fi  }
+
+RUN apt_remove libgdal-dev libgeos-dev libproj-dev && apt-get autoremove -y
 
 ## will need to do this all properly
 ## zap the old copy (find out why in https://github.com/mdsumner/gdal-builds/issues/1)
