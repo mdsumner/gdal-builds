@@ -32,7 +32,7 @@ RUN git clone https://github.com/osgeo/gdal.git \
     && cd gdal \
     && mkdir build \
     && cd build \
-    &&  cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=NO \
+    &&  cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DENABLE_TESTS=NO \
     && make -j$(nproc) \
     && make install \
     && cd ../.. \

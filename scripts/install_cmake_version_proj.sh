@@ -88,7 +88,7 @@ rm proj.tar.gz
 cd proj-*
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DENABLE_TESTS=NO
 cmake --build . --parallel "$CMAKE_CORES" --target install
 ldconfig
 cd ../..
