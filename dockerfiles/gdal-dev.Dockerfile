@@ -13,7 +13,8 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 #RUN find /usr -mtime +15 -name "libgeos*" -exec  rm -f {} +
 #RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
 
-RUN apt-get remove gdal-bin libgdal-dev libgeos-dev libproj-dev && apt-get autoremove -y
+# a function to remove apt packages only if they are installed
+RUN function apt_remove() {     if dpkg -s "$@" >/dev/null 2>&1; then  apt-get remove -y "$@"; fi  } && apt_remove gdal-bin libgdal-dev libgeos-dev libproj-dev && apt-get autoremove -y
 
 RUN apt-get update && apt-get -y upgrade
 
