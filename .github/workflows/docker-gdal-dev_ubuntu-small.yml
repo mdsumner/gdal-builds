@@ -2,7 +2,7 @@ name: Docker Image CI - gdal-dev_ubuntu-small
 on:
   workflow_dispatch: null
   push:
-    paths: ['small/Dockerfile', '.github/workflows/docker-gdal-dev_ubuntu-small.yml', 'scripts/install_cmake_version_proj.sh']
+    paths: ['small/Dockerfile', '.github/workflows/docker-gdal-dev_ubuntu-small.yml']
 jobs:
   build:
     runs-on: ubuntu-latest
