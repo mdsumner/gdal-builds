@@ -16,7 +16,7 @@ LABEL maintainer="Even Rouault <even.rouault@spatialys.com>"
 
 ARG TARGET_ARCH=
 RUN echo ${TARGET_ARCH}
-COPY ./bh-set-envvars.sh /buildscripts/bh-set-envvars.sh
+COPY small/bh-set-envvars.sh /buildscripts/bh-set-envvars.sh
 
 RUN . /buildscripts/bh-set-envvars.sh \
     && if test "${TARGET_ARCH}" != ""; then \
