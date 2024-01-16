@@ -1,10 +1,8 @@
 name: Docker Image CI - gdal-dev_ubuntu-small
 on:
   workflow_dispatch: null
-  schedule:
-    - cron: '0 0,16 * * *'
   push:
-    paths: ['dockerfiles/gdal-dev_ubuntu-small.Dockerfile', '.github/workflows/docker-gdal-dev_ubuntu-small.yml', 'scripts/install_cmake_version_proj.sh']
+    paths: ['small/Dockerfile', '.github/workflows/docker-gdal-dev_ubuntu-small.yml', 'scripts/install_cmake_version_proj.sh']
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +18,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the (gdal-dev_ubuntu-small) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/gdal-dev_ubuntu-small.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal-dev_ubuntu-small
+        run: docker build -f small/Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal-dev_ubuntu-small
       - name: Publish (gdal-dev_ubuntu-small)
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker push ghcr.io/mdsumner/gdal-builds:gdal-dev_ubuntu-small
