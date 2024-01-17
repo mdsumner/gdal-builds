@@ -9,6 +9,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export RETICULATE_PYTHON=/usr/bin/python3
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 
 COPY dotfiles/.Rprofile /root/.Rprofile
 
