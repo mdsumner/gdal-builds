@@ -8,9 +8,6 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 RUN export RETICULATE_PYTHON=/usr/bin/python3
 
-
-RUN rm -rf gdal/
-
 COPY dotfiles/.Rprofile /root/.Rprofile
 
 RUN  curl -L https://rig.r-pkg.org/deb/rig.gpg -o /etc/apt/trusted.gpg.d/rig.gpg \
