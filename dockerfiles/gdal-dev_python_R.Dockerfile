@@ -16,7 +16,7 @@ RUN apt update -qq \
      && add-apt-repository  -y "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
      &&  apt-get install -y --no-install-recommends r-base \
      && Rscript -e "install.packages('pak'); pak::pak(c('devtools', 'reticulate', 'remotes'))" \
-     && apt-get install libudunits2-dev \
+     && apt-get install -y  libudunits2-dev \
      && Rscript -e "pak::pak(c('devtools', 'reticulate', 'units', 's2'))" \
      && Rscript -e "xs <- c('terra', 'wk', 'geos', 'hypertidy/PROJ', 'hypertidy/vapour', 'hypertidy/ximage', 'hypertidy/sds', 'hypertidy/dsn', 'hypertidy/whatarelief', 'hypertidy/vaster', 'hypertidy/grout', 'hypertidy/reproj', 'hypertidy/quad',  'geodata', 'geosphere'); devtools::install_github(xs)"
 
