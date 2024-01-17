@@ -7,6 +7,8 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
 RUN export RETICULATE_PYTHON=/usr/bin/python3
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN export TZ=Etc/UTC
 
 COPY dotfiles/.Rprofile /root/.Rprofile
 
