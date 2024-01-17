@@ -8,6 +8,9 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 ## RUN rm -rf /gdal
 
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN export TZ=Etc/UTC
+
 ## shapely:  I *think* rioxarray installs its own GEOS below, so we do this
 ## pyproj: FIXED (build PROJ from source at required version)
 ##           (was: allow to install its own PROJ (GDAL container is 8.2.1 but pyproj>3.4.1 requires 9.0.0)
@@ -35,4 +38,6 @@ RUN  apt-get update && apt-get  install python3-pip libgeos-dev geos-bin -y && p
       &&  python3 -m pip install odc-geo  --no-binary ":all:" \
       &&  python3 -m pip install rioxarray  --no-binary ":all:" \
       && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
-      &&  python3 -m pip install stackstac --no-binary ":all:"
+      &&  python3 -m pip install stackstac --no-binary ":all:" \
+      && python3 -m pip install pystac-client
+
