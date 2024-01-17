@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.description="A build of GDAL and R latest for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
-RUN rm -rf /gdal
+## RUN rm -rf /gdal
 
 ## shapely:  I *think* rioxarray installs its own GEOS below, so we do this
 ## pyproj: FIXED (build PROJ from source at required version)
@@ -16,16 +16,17 @@ RUN rm -rf /gdal
 ## odc-geo: FIXED (upgrade pip) pointlessly reinstalls pyproj and fails: https://gist.github.com/mdsumner/648eb84e738fbd15a0aa9869981cbebe
 ## see if upgrade pip works! it does
 
+## sigh, shapely h5netcdf and netCDF4 I can't get working from source so they have their own HDF5/NetCDF and GEOS not the ones GDAL installs
+
+
 RUN  apt-get update && apt-get  install python3-pip -y && pip3 install --upgrade pip \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
-      &&  python3 -m pip install h5netcdf --no-binary h5netcdf --force-reinstall \
-      &&  python3 -m pip install netCDF4 --no-binary netCDF4 --force-reinstall \
+      &&  python3 -m pip install h5netcdf netCDF4  \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt \
       &&  python3 -m pip install -r requirements-dev.txt \
       && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
-      &&  python3 -m pip install shapely --no-binary shapely --force-reinstall \
       &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       && python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       &&  python3 -m pip install fiona --no-binary fiona \
