@@ -19,7 +19,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 ## sigh, shapely h5netcdf and netCDF4 I can't get working from source so they have their own HDF5/NetCDF and GEOS not the ones GDAL installs
 
 
-RUN  apt-get update && apt-get  install python3-pip -y && pip3 install --upgrade pip \
+RUN  apt-get update && apt-get  install python3-pip libgeos-dev geos-bin -y && pip3 install --upgrade pip \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
       &&  python3 -m pip install h5netcdf netCDF4  \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
