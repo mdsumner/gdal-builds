@@ -20,9 +20,9 @@ RUN apt update -qq \
      &&  apt-get install -y --no-install-recommends r-base libcurl4-openssl-dev \
      && Rscript -e "install.packages('pak'); pak::pak(c('devtools', 'reticulate', 'remotes'))" \
      && apt-get install -y  libudunits2-dev \
-     && Rscript -e "pak::pak(c('devtools', 'reticulate', 'units', 's2', 'wk',  'geodata', 'geosphere'))" \
      && Rscript -e "xs <- c('hypertidy/PROJ', 'hypertidy/vapour', 'hypertidy/ximage', 'hypertidy/sds', 'hypertidy/dsn', 'hypertidy/whatarelief', 'hypertidy/vaster', 'hypertidy/grout', 'hypertidy/reproj', 'hypertidy/quad'); devtools::install_github(xs)" \
-     && Rscript -e "ys <- c('terra', 'geos'); devtools::install_cran(ys)"
+     && Rscript -e "ys <- c('terra', 'geos'); devtools::install_cran(ys)" \
+     && Rscript -e "pak::pak(c('devtools', 'reticulate', 'units', 's2', 'wk',  'geodata', 'geosphere'))"
 
 
 
