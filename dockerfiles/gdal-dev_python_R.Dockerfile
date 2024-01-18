@@ -22,7 +22,7 @@ RUN apt update -qq \
      && apt-get install -y  libudunits2-dev \
      && Rscript -e "xs <- c('hypertidy/PROJ', 'hypertidy/vapour', 'hypertidy/ximage', 'hypertidy/sds', 'hypertidy/dsn', 'hypertidy/whatarelief', 'hypertidy/vaster', 'hypertidy/grout', 'hypertidy/reproj', 'hypertidy/quad'); devtools::install_github(xs)" \
      && Rscript -e "ys <- c('terra', 'geos'); devtools::install_cran(ys)" \
-     && Rscript -e "pak::pak(c('devtools', 'reticulate', 'units', 's2', 'wk',  'geodata', 'geosphere'))"
+     && Rscript -e "devtools::install_cran(c( 'reticulate', 'units', 's2', 'wk',  'geodata', 'geosphere'))"
 
 
 
