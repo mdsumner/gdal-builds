@@ -17,6 +17,9 @@ ARG TARGET_ARCH=
 RUN echo ${TARGET_ARCH}
 COPY full/bh-set-envvars.sh /buildscripts/bh-set-envvars.sh
 
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN export TZ=Etc/UTC
+
 RUN . /buildscripts/bh-set-envvars.sh \
     && if test "${TARGET_ARCH}" != ""; then \
     rm -f /etc/apt/sources.list \
@@ -336,7 +339,7 @@ RUN apt-get update \
 
 COPY --from=builder  /build_thirdparty/usr/ /usr/
 
-ARG PROJ_INSTALL_PREFIX=/usr/local
+ARG PROJ_INSTALL_PREFIX=/usr
 COPY --from=builder  /tmp/proj_grids/* ${PROJ_INSTALL_PREFIX}/share/proj/
 
 COPY --from=builder  /build${PROJ_INSTALL_PREFIX}/share/proj/ ${PROJ_INSTALL_PREFIX}/share/proj/
