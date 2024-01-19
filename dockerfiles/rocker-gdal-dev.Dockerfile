@@ -15,9 +15,9 @@ RUN export TZ=Etc/UTC
 #ENV GDAL_VERSION=3.8.3
 #ENV GEOS_VERSION=3.12.1
 
-COPY scripts/install_dev_osgeo.sh /rocker_scripts/install_dev_osgeo.sh
+COPY scripts/install_gdal-dev.sh /rocker_scripts/install_gdal-dev.sh
 
-RUN /rocker_scripts/install_dev_osgeo.sh
+RUN /rocker_scripts/install_gdal-dev.sh
 
 RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >> ~/.profile
 
