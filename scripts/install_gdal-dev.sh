@@ -207,6 +207,8 @@ cd /build_local
 
 apt-get update && apt-get -y install cargo
 
+export RETICULATE_PYTHON=/usr/bin/python3
+
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     sf \
     terra \
@@ -217,7 +219,8 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     geodata \
     wk \
     sfheaders \
-    geometries
+    geometries \
+    reticulate
 
 Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"))'
 
