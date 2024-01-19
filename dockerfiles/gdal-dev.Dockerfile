@@ -8,10 +8,6 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 
 
 
-# a function to remove apt packages only if they are installed
-
-COPY scripts/apt_helpers.sh /scripts/apt_helpers.sh
-RUN /scripts/apt_helpers.sh
 
 
 ## will need to do this all properly
@@ -22,11 +18,9 @@ RUN find /usr -mtime +15 -name "libproj*" -exec  rm -f {} +
 
 RUN apt-get update && apt-get -y upgrade
 
-ENV PROJ_VERSION=9.3.1
-
-COPY scripts/install_cmake_version_proj.sh /scripts/install_cmake_version_proj.sh
-
-RUN /scripts/install_cmake_version_proj.sh
+#ENV PROJ_VERSION=9.3.1
+#COPY scripts/install_cmake_version_proj.sh /scripts/install_cmake_version_proj.sh
+#RUN /scripts/install_cmake_version_proj.sh
 
 RUN git clone https://github.com/osgeo/gdal.git \
     && cd gdal \
