@@ -8,8 +8,10 @@ set -e
 ## build ARGs
 NCPUS=${NCPUS:-"-1"}
 
+#GDAL_VERSION=${GDAL_VERSION:-"devel"}
+GDAL_REPO=${GDAL_REPO:-"https://github.com/osgeo/gdal.git"}
+GDAL_TAG=${GDAL_TAG:-""}  ## means latest commit, otherwise v3.8.2 or an actual commit sha
 PROJ_VERSION=${PROJ_VERSION:-"latest"}
-GDAL_VERSION=${GDAL_VERSION:-"devel"}
 GEOS_VERSION=${GEOS_VERSION:-"latest"}
 
 CRAN_SOURCE=${CRAN_SOURCE:-"https://cloud.r-project.org"}
@@ -184,19 +186,12 @@ cmake --build . --parallel "$CMAKE_CORES" --target install
 ldconfig
 cd /build_local
 
-# install gdal
-# https://download.osgeo.org/gdal/
-#if [ "$GDAL_VERSION" = "latest" ]; then
-#    GDAL_DL_URL=$(url_latest_gh_released_asset "OSGeo/gdal")
-#else
-#    GDAL_DL_URL="https://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz"
-#fi
 
-#wget "$GDAL_DL_URL" -O gdal.tar.gz
-#tar -xf gdal.tar.gz
-#rm gdal*tar.gz
-git clone --depth 1 https://github.com/osgeo/gdal.git
-cd gdal*
+git clone ${GDAL_REPO}
+cd gdal
+if [[ -n "$GDAL_TAG" ]]; then
+  git checkout ${GDAL_TAG}
+fi
 mkdir build
 cd ./build
 # cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr   -DBUILD_JAVA_BINDINGS:BOOL=OFF -DBUILD_CSHARP_BINDINGS:BOOL=OFF
