@@ -33,6 +33,7 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       &&  python3 -m pip install fiona --no-binary fiona \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
+      && python3 -m pip install shapely --no-binary shapely \
       && python3 -m pip install geopandas --no-binary geopandas \
       &&  python3 -m pip install odc-geo  --no-binary ":all:" \
       &&  python3 -m pip install rioxarray  --no-binary ":all:" \
