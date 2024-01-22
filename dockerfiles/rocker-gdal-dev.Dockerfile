@@ -30,13 +30,12 @@ RUN  apt-get update && apt-get  install python3-pip libgeos-dev geos-bin -y && p
       && rm requirements-dev.txt requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
-      && python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       &&  python3 -m pip install fiona --no-binary fiona \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
       && python3 -m pip install geopandas --no-binary geopandas \
       &&  python3 -m pip install odc-geo  --no-binary ":all:" \
-      &&  python3 -m pip install rioxarray  --no-binary ":all:"
-#      && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
-#      &&  python3 -m pip install stackstac --no-binary ":all:" \
-#      && python3 -m pip install pystac-client
+      &&  python3 -m pip install rioxarray  --no-binary ":all:" \
+      && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
+      &&  python3 -m pip install stackstac  \
+      && python3 -m pip install pystac-client
 
