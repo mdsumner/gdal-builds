@@ -222,9 +222,15 @@ Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hy
 # Clean up
 rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/downloaded_packages
+rm -rf /*.deb /build_thirdparty /build_local
+
+
 
 # Check the geospatial packages
 
 echo -e "Check the stars package...\n"
 R -q -e "library(stars)"
 echo -e "\nInstall stars package, done!"
+
+
+

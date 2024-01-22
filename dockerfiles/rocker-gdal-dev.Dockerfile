@@ -41,4 +41,4 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       &&  python3 -m pip install stackstac  \
       && python3 -m pip install pystac-client
 
-RUN rm -rf /*.deb /build_thirdparty /build_local
+
