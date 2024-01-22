@@ -21,7 +21,8 @@ RUN /rocker_scripts/install_gdal-dev.sh
 
 RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >> ~/.profile
 
-RUN  apt-get update && apt-get  install python3-pip libgeos-dev geos-bin -y && pip3 install --upgrade pip \
+# libgeos-dev geos-bin
+RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
       &&  python3 -m pip install h5netcdf netCDF4  \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
