@@ -51,6 +51,77 @@ We might unpick to multiple builds again, I guess to separate R and Python but t
 
 Note it's a very large image, like 6-7Gb and that's bigger than it could be, we'll clean up. 
 
+
+See the versions of libs GEOS, PROJ, GDAL are aligned
+
+```
+ terra::gdal()
+[1] "3.9.0dev-468125c1ce"
+ terra::gdal(lib = "PROJ")
+[1] "9.3.1"
+> terra::gdal(lib = "GEOS")
+[1] "3.12.1"
+
+library(reticulate)
+import("geopandas")$show_versions()
+
+SYSTEM INFO
+-----------
+python     : 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+executable : /usr/bin/python3
+machine    : Linux-5.15.0-91-generic-x86_64-with-glibc2.35
+
+GEOS, GDAL, PROJ INFO
+---------------------
+GEOS       : 3.12.1
+GEOS lib   : None
+GDAL       : 3.9.0dev-468125c1ce
+GDAL data dir: None
+PROJ       : 9.3.0
+PROJ data dir: /usr/local/lib/python3.10/dist-packages/pyproj/proj_dir/share/proj
+
+PYTHON DEPENDENCIES
+-------------------
+geopandas  : 0.14.2
+numpy      : 1.26.3
+pandas     : 2.2.0
+pyproj     : 3.6.1
+shapely    : 2.0.2
+fiona      : 1.9.5
+geoalchemy2: None
+geopy      : None
+matplotlib : 3.8.2
+mapclassify: None
+pygeos     : None
+pyogrio    : 0.7.2
+psycopg2   : None
+pyarrow    : None
+rtree      : None
+
+
+import("rioxarray")$show_versions()
+rioxarray (0.15.0) deps:
+  rasterio: 1.3.9
+    xarray: 2024.1.0
+      GDAL: 3.9.0dev-468125c1ce
+      GEOS: 3.12.1
+      PROJ: 9.3.1
+ PROJ DATA: /root/.local/share/proj:/usr/local/share/proj:/usr/local/share/proj
+ GDAL DATA: /usr/local/lib/R/site-library/terra//gdal
+
+Other python deps:
+     scipy: 1.12.0
+    pyproj: 3.6.1
+
+System:
+    python: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+executable: /usr/bin/python3
+   machine: Linux-5.15.0-91-generic-x86_64-with-glibc2.35
+
+import("shapely")$geos_version_string
+#[1] "3.12.1"
+
+```
 Available Python packages as at 2024-01-22: 
 
 ```
