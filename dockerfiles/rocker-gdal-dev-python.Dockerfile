@@ -17,7 +17,7 @@ RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >>
 RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip \
       &&  python3 -m pip install matplotlib   cftime  scipy zarr fsspec \
       &&  python3 -m pip install h5netcdf netCDF4  \
-      &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements-dev.txt \
+      && python3 -m pip install shapely --no-binary shapely \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt \
       &&  python3 -m pip install -r requirements-dev.txt \
       && rm requirements-dev.txt requirements.txt \
@@ -25,7 +25,6 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       &&  python3 -m pip install fiona --no-binary fiona \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
-      && python3 -m pip install shapely --no-binary shapely \
       && python3 -m pip install geopandas --no-binary geopandas \
       &&  python3 -m pip install odc-geo  --no-binary ":all:" \
       &&  python3 -m pip install rioxarray  --no-binary ":all:" \
