@@ -19,8 +19,8 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       &&  python3 -m pip install h5netcdf netCDF4  \
       && python3 -m pip install shapely --no-binary shapely \
       &&  wget  https://raw.githubusercontent.com/rasterio/rasterio/main/requirements.txt \
-      &&  python3 -m pip install -r requirements-dev.txt \
-      && rm requirements-dev.txt requirements.txt \
+      &&  python3 -m pip install -r requirements.txt \
+      && rm requirements.txt \
       &&  python3 -m pip install rasterio --no-binary rasterio --force-reinstall \
       &&  python3 -m pip install pyogrio --no-binary pyogrio --force-reinstall \
       &&  python3 -m pip install fiona --no-binary fiona \
