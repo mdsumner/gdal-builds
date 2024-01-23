@@ -11,14 +11,20 @@ libs up to date and with R and Python packages using them in alignment.
 
 This builds:
 
-- `rocker-gdal-dev`, this is latest commit on osgeo/gdal, and latest
-  release PROJ and GEOS, with a large number of R and Python packages
-  that all use these vesions
+- `rocker-gdal-dev`, this starts with
+  [rocker/verse](https://rocker-project.org/images/) and adds GDAL from
+  latest commit, and latest release PROJ and GEOS, with a number of R
+  packages that all use these versions
+- `rocker-gdal-dev-python`, this adds a large number of python packages
+  also aligned to the GDAL, PROJ, and GEOS versions.
 
 You can do this to get into an interactive session, you’ll see bleeding
 edge GDAL and very recent PROJ and geos installs.
 
-    docker run --rm -ti ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev  
+    docker run --rm -ti ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-python  bash
+
+RStudio server is included which is why we start with bash explicitly
+rather than spin up the server.
 
 In there you can start R, and you can immediately do
 
@@ -31,9 +37,15 @@ geopandas <- import("geopandas")
 
 and see that `show_versions()` of them all are in alignment (hurrah!).
 
-IF you want `/vsicurl` then you must run with this, for example:
+IF you want `/vsicurl` to work then you must run with this, for example:
 
     docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev 
+
+## NOTES
+
+I have an odd mix of pip installs that reflects me getting them to not
+install static binaries (I haven’t succeed in aligning versions of HDF
+and NetCDF yet).
 
 All very much WIP, I can’t otherwise get rocker to do what I want yet
 (it’s kind of built in the other direction, first they layer up R base
@@ -49,7 +61,8 @@ Python but this is all together is what I want for now.
 Note it’s a very large image, like 6-7Gb and that’s bigger than it could
 be, we’ll clean up.
 
-See the versions of libs GEOS, PROJ, GDAL are aligned
+See the versions of libs GEOS, PROJ, GDAL - these reports are as at
+2024-01-22.
 
      terra::gdal()
     [1] "3.9.0dev-468125c1ce"
