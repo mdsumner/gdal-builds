@@ -23,6 +23,9 @@ if [ "${CMAKE_CORES}" = "-1" ]; then
     CMAKE_CORES=$(nproc --all)
 fi
 
+# ;)
+export MAKEFLAGS="-j$(nproc)"
+
 # a function to install apt packages only if they are not installed
 function apt_install() {
     if ! dpkg -s "$@" >/dev/null 2>&1; then
@@ -60,7 +63,9 @@ apt-get install -y --fix-missing --no-install-recommends \
     ca-certificates \
     cmake \
     curl \
+    emacs \
     git \
+    htop \
     libarchive-dev \
     libarmadillo-dev \
     libblosc-dev \
@@ -106,6 +111,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     lsb-release \
     make \
     mdbtools-dev \
+    nano \
     pkg-config \
     python3-dev \
     python3-numpy \
@@ -224,7 +230,9 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/downloaded_packages
 rm -rf /*.deb /build_thirdparty /build_local
 
-
+apt-get autoclean \
+apt-get autoremove \
+rm -rf /var/lib/{apt,dpkg,cache,log}
 
 # Check the geospatial packages
 
@@ -232,5 +240,5 @@ echo -e "Check the stars package...\n"
 R -q -e "library(stars)"
 echo -e "\nInstall stars package, done!"
 
-
+unset MAKEFLAGS
 
