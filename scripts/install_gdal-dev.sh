@@ -63,6 +63,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     ca-certificates \
     cmake \
     curl \
+    devscripts \
     emacs \
     git \
     htop \
@@ -116,6 +117,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     python3-dev \
     python3-numpy \
     python3-setuptools \
+    qpdf \
     sqlite3 \
     swig \
     unixodbc-dev \
@@ -221,7 +223,8 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     wk \
     sfheaders \
     geometries \
-    reticulate
+    reticulate \
+    urlchecker
 
 Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"))'
 
