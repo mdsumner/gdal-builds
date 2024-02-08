@@ -234,8 +234,8 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/downloaded_packages
 rm -rf /*.deb /build_thirdparty /build_local
 
-apt-get autoclean \
-apt-get autoremove \
+apt-get autoclean
+apt-get autoremove
 rm -rf /var/lib/{apt,dpkg,cache,log}
 
 # Check the geospatial packages
