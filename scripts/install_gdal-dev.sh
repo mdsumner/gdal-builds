@@ -213,6 +213,7 @@ apt-get update && apt-get -y install cargo
 export RETICULATE_PYTHON=/usr/bin/python3
 
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
+    furrr \
     sf \
     terra \
     lwgeom \
