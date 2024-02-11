@@ -1,2 +1,5 @@
 wget https://raw.githubusercontent.com/mdsumner/proj-builds/main/install_cmake_version_proj.sh
 
+
+## this so we add tidyvere to r-ver, not to verse (avoid pandoc, rstudio, quarto)
+wget https://raw.githubusercontent.com/rocker-org/rocker-versioned2/master/scripts/install_tidyverse.sh

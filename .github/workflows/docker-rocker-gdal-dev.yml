@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0,8 * * *'
   push:
-    paths: ['dockerfiles/rocker-gdal-dev.Dockerfile', '.github/workflows/docker-rocker-gdal-dev.yml', 'scripts/install_gdal-dev.sh']
+    paths: ['dockerfiles/rocker-gdal-dev.Dockerfile', '.github/workflows/docker-rocker-gdal-dev.yml', 'scripts/install_gdal-dev.sh', 'scripts/install_tidyverse.sh']
 jobs:
   build:
     runs-on: ubuntu-latest

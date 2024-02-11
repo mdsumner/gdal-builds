@@ -15,6 +15,10 @@ RUN export TZ=Etc/UTC
 #ENV GDAL_VERSION=3.8.3
 #ENV GEOS_VERSION=3.12.1
 
+COPY scripts/install_tidyverse.sh /rocker_scripts/install_tidyverse.sh
+RUN /rocker_scripts/install_tidyverse.sh
+
+
 COPY scripts/install_gdal-dev.sh /rocker_scripts/install_gdal-dev.sh
 
 RUN /rocker_scripts/install_gdal-dev.sh
