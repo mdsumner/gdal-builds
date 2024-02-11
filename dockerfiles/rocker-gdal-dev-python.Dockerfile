@@ -33,6 +33,6 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       &&  python3 -m pip install rioxarray  --no-binary rioxarray \
       && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
       &&  python3 -m pip install stackstac  \
-      && python3 -m pip install pystac-client
+      && python3 -m pip install pystac-client cartopy pooch
 
 RUN unset MAKEFLAGS
