@@ -230,10 +230,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
 Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"))'
 
 ## use the SCAR r-universe package repository
-op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org"))
-## install
-install.packages("bowerbird")
-options(op)
+Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird"); options(op)'
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
