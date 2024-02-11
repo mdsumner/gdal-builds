@@ -8,6 +8,8 @@ set -e
 ## build ARGs
 NCPUS=${NCPUS:-"-1"}
 
+export MAKEFLAGS=-j4
+
 #GDAL_VERSION=${GDAL_VERSION:-"devel"}
 GDAL_REPO=${GDAL_REPO:-"https://github.com/osgeo/gdal.git"}
 GDAL_TAG=${GDAL_TAG:-""}  ## means latest commit, otherwise v3.8.2 or an actual commit sha
@@ -212,6 +214,7 @@ apt-get update && apt-get -y install cargo
 
 export RETICULATE_PYTHON=/usr/bin/python3
 
+
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     furrr \
     sf \
@@ -227,10 +230,13 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     reticulate \
     urlchecker
 
-Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"))'
+
+Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"), Ncpus = 4)'
 
 ## use the SCAR r-universe package repository
-Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird"); options(op)'
+Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
+
+unset MAKEFLAGS
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
