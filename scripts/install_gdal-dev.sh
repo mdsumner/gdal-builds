@@ -8,8 +8,6 @@ set -e
 ## build ARGs
 NCPUS=${NCPUS:-"-1"}
 
-export MAKEFLAGS=-j4
-
 #GDAL_VERSION=${GDAL_VERSION:-"devel"}
 GDAL_REPO=${GDAL_REPO:-"https://github.com/osgeo/gdal.git"}
 GDAL_TAG=${GDAL_TAG:-""}  ## means latest commit, otherwise v3.8.2 or an actual commit sha
@@ -236,7 +234,6 @@ Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hy
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
 
-unset MAKEFLAGS
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
