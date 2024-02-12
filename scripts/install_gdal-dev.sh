@@ -67,6 +67,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     emacs \
     git \
     htop \
+    less \
     libarchive-dev \
     libarmadillo-dev \
     libblosc-dev \
