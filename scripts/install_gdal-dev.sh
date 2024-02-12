@@ -226,7 +226,11 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     sfheaders \
     geometries \
     reticulate \
-    urlchecker
+    urlchecker \
+    rslurm \
+    future.batchtools \
+    crew \
+    crew.cluster
 
 
 Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"), Ncpus = 4)'
