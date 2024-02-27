@@ -238,6 +238,9 @@ Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/PROJ", "hy
 
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "ropensci/bowerbird"), Ncpus = 4)'
 
+Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
+
+
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
 
