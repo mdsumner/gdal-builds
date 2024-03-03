@@ -241,6 +241,7 @@ Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "Aust
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
+Rscript - 'devtools::install_github("geoarrow/geoarrow-r")'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
