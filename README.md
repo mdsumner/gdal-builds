@@ -66,7 +66,7 @@ Note it’s a very large image, like 6-7Gb and that’s bigger than it could
 be.
 
 See the versions of libs GEOS, PROJ, GDAL - these reports are as at
-2024-01-22.
+2024-03-11.
 
 ``` r
 terra::gdal()
@@ -135,8 +135,6 @@ import("shapely")$geos_version_string
     executable: /usr/bin/python3
        machine: Linux-5.15.0-94-generic-x86_64-with-glibc2.35
     [1] "3.12.1"
-
-Available Python packages as at 2024-03-11:
 
 ``` r
 system("python3 -m pip list")

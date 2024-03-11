@@ -69,7 +69,7 @@ We might unpick to multiple builds again, to reduce the size and to separate R a
 
 Note it's a very large image, like 6-7Gb and that's bigger than it could be. 
 
-See the versions of libs GEOS, PROJ, GDAL - these reports are as at 2024-01-22. 
+See the versions of libs GEOS, PROJ, GDAL - these reports are as at 2024-03-11. 
 
 
 ```R
@@ -144,8 +144,6 @@ executable: /usr/bin/python3
 
 ```
 
-
-Available Python packages as at 2024-03-11: 
 
 ```R
 system("python3 -m pip list")
