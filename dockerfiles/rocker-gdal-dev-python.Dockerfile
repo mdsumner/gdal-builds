@@ -20,7 +20,7 @@ RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >>
 RUN export MAKEFLAGS="-j$(nproc)"
 
 RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip \
-      &&  python3 -m pip install matplotlib  cftime  scipy zarr fsspec h5netcdf netCDF4  \
+      &&  python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  \
       && python3 -m pip install setuptools>=61.0.0 wheel cython>=3.0 \
       && python3 -m pip install shapely>=2.0.2 --no-binary :all: \
       &&  python3 -m pip install 'affine~=2.3.0' 'attrs>=19.2.0' 'boto3>=1.3.1' 'click~=8.0' click-plugins 'cligj>=0.5'  'snuggs~=1.4.0' 'setuptools>=20.0' 'pyparsing~=3.1' delocate  hypothesis mypy numpydoc packaging pytest 'pytest-cov>=2.2.0' 'pytest-randomly==3.10.1'  sphinx sphinx-click sphinx-rtd-theme  \
