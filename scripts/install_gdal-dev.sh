@@ -119,6 +119,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     python3-numpy \
     python3-setuptools \
     qpdf \
+    rsync \
     sqlite3 \
     swig \
     unixodbc-dev \
