@@ -236,7 +236,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     crew.cluster
 
 
-Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"), Ncpus = 4)'
 
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "ropensci/bowerbird"), Ncpus = 4)'
 
