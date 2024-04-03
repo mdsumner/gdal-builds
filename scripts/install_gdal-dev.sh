@@ -114,6 +114,8 @@ apt-get install -y --fix-missing --no-install-recommends \
     make \
     mdbtools-dev \
     nano \
+    netcdf-bin \
+    nco \
     pkg-config \
     python3-dev \
     python3-numpy \
@@ -232,6 +234,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     urlchecker \
     rslurm \
     future.batchtools \
+    tidync \
     crew \
     crew.cluster
 
