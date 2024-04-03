@@ -236,7 +236,12 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     future.batchtools \
     tidync \
     crew \
-    crew.cluster
+    crew.cluster \
+    sits \
+    rsi \
+    rstac
+
+
 
 
 Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn"), Ncpus = 4)'
