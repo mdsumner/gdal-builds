@@ -33,6 +33,6 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
       &&  python3 -m pip install stackstac  \
       && python3 -m pip install pystac-client cartopy pooch \
-      && python3 -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk s3fs
+      && python3 -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk s3fs planetary.computer
 
 RUN unset MAKEFLAGS
