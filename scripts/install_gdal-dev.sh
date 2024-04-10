@@ -242,7 +242,8 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     crew.cluster \
     sits \
     rsi \
-    rstac
+    rstac \
+    multidplyr
 
 
 
