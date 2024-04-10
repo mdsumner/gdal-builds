@@ -236,6 +236,9 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     future.batchtools \
     tidync \
     crew \
+    targets \
+    dotenv \
+    tarchetypes \
     crew.cluster \
     sits \
     rsi \
