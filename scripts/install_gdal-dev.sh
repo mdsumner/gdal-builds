@@ -236,6 +236,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     future.batchtools \
     tidync \
     crew \
+    mirai \
     targets \
     dotenv \
     tarchetypes \
@@ -243,22 +244,24 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
     sits \
     rsi \
     rstac \
-    multidplyr
+    multidplyr \
+    duckdbfs \
+    fasterize \
+    exactextract \
+    furrr
 
 
 
 
 Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
 
-Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "ropensci/bowerbird"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "AustralianAntarcticDivision/Grym", "ropensci/bowerbird"), Ncpus = 4)'
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
 Rscript - 'devtools::install_github("geoarrow/geoarrow-r")'
 
-Rscript - 'devtools::install_github("paleolimbot/geoarrow")'
-
-Rscript - 'devtools::install_cran(c("fasterize", "exactextract"))'
+Rscript - 'devtools::install_github(c("paleolimbot/geoarrow", "r-lib/revdepcheck"))'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
