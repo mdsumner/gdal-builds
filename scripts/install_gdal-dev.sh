@@ -275,7 +275,7 @@ Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
 Rscript - 'devtools::install_github("geoarrow/geoarrow-r")'
 
-Rscript - 'devtools::install_github(c("paleolimbot/geoarrow", "r-lib/revdepcheck"))'
+Rscript - 'devtools::install_github(c("USDAForestService/gdalraster", "paleolimbot/geoarrow", "r-lib/revdepcheck"))'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
@@ -292,9 +292,9 @@ apt-get autoremove
 
 # Check the geospatial packages
 
-echo -e "Check the stars package...\n"
-R -q -e "library(stars)"
-echo -e "\nInstall stars package, done!"
+echo -e "Check the gdalraster package...\n"
+R -q -e "library(gdalraster)"
+echo -e "\nInstall gdalraster package, done!"
 
 unset MAKEFLAGS
 
