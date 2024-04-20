@@ -100,6 +100,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     libpcre3-dev \
     libpng-dev \
     libpq-dev \
+    libpoppler-cpp-dev \
     libpoppler-dev \
     libpoppler-private-dev \
     libqhull-dev \
