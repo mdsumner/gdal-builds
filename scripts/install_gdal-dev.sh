@@ -218,38 +218,52 @@ export RETICULATE_PYTHON=/usr/bin/python3
 
 
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
-    furrr \
-    sf \
-    terra \
-    lwgeom \
-    stars \
-    fields \
-    gdalcubes \
-    geosphere \
-    geodata \
-    wk \
-    sfheaders \
-    geometries \
-    reticulate \
-    urlchecker \
-    rslurm \
-    future.batchtools \
-    tidync \
-    crew \
-    mirai \
-    targets \
-    dotenv \
-    tarchetypes \
-    crew.cluster \
-    sits \
-    rsi \
-    rstac \
-    multidplyr \
-    duckdbfs \
-    fasterize \
-    exactextract \
-    furrr
-
+       affinity \
+       crew \
+       crew.cluster \
+       dotenv \
+       duckdbfs \
+       exactextract \
+       fasterize \
+       fields \
+       furrr \
+       future.batchtools \
+       gdalcubes \
+       geodata \
+       geometries \
+       geosphere \
+       graticule \
+       gibble \
+       httptest2 \
+       jpeg \
+       knitr \
+       lwgeom \
+       mapscanner \
+       mapview \
+       mirai \
+       mmand \
+       multidplyr \
+       osmdata \
+       polyclip \
+       quadmesh \
+       rbgm \
+       reticulate \
+       rsi \
+       rslurm \
+       rstac \
+       sf \
+       sfheaders \
+       sits \
+       spex \
+       stars \
+       tarchetypes \
+       targets \
+       terra \
+       tidync \
+       trip \
+       tripEstimation \
+       urlchecker \
+       wk
 
 
 
