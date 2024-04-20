@@ -291,11 +291,6 @@ apt-get autoclean
 apt-get autoremove
 ##rm -rf /var/lib/{apt,dpkg,cache,log}
 
-# Check the geospatial packages
-
-echo -e "Check the gdalraster package...\n"
-R -q -e "library(gdalraster)"
-echo -e "\nInstall gdalraster package, done!"
 
 unset MAKEFLAGS
 
