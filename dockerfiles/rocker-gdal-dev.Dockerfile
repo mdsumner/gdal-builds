@@ -1,4 +1,4 @@
-FROM rocker/verse:4.3.2
+FROM rocker/verse:4.4.0
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
