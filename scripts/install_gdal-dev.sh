@@ -224,7 +224,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        crew.cluster \
        dotenv \
        duckdbfs \
-       exactextract \
+       exactextractr \
        fasterize \
        fields \
        furrr \
@@ -274,9 +274,9 @@ Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "Aust
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
-Rscript - 'devtools::install_github("geoarrow/geoarrow-r")'
+Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
-Rscript - 'devtools::install_github(c("USDAForestService/gdalraster", "paleolimbot/geoarrow", "r-lib/revdepcheck"))'
+Rscript -e 'devtools::install_github(c("USDAForestService/gdalraster", "paleolimbot/geoarrow", "r-lib/revdepcheck"))'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
