@@ -219,7 +219,9 @@ export RETICULATE_PYTHON=/usr/bin/python3
 
 
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
+       adbcdrivermanager \
        affinity \
+       AzureStor \
        crew \
        crew.cluster \
        dotenv \
