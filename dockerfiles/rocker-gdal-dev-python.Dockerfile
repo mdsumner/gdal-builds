@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >> ~/.profile
+#RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >> ~/.profile
 
 ## this is the full rasterio requirements (2024-01-25) sans shapely, numpy, matplotlib, fsspec, cython
 
