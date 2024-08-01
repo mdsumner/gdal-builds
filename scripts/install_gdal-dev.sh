@@ -222,6 +222,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        adbcdrivermanager \
        affinity \
        AzureStor \
+       biglm \
        crew \
        crew.cluster \
        dotenv \
