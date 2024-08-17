@@ -237,6 +237,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        gdalcubes \
        geodata \
        geometries \
+       geos \
        geosphere \
        graticule \
        gibble \
@@ -259,6 +260,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        rstac \
        sf \
        sfheaders \
+       silicate \
        sits \
        spex \
        stars \
@@ -278,6 +280,8 @@ Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapou
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "AustralianAntarcticDivision/Grym", "ropensci/bowerbird"), Ncpus = 4)'
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
+
+Rscript -e 'devtools::install_github("hypertidy/anglr")'
 
 Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
