@@ -166,7 +166,9 @@ LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 # install geos
 # https://libgeos.org/usage/download/
 if [ "$GEOS_VERSION" = "latest" ]; then
-    GEOS_VERSION=$(wget -qO- "https://api.github.com/repos/libgeos/geos/git/refs/tags" | grep -oP "(?<=\"ref\":\s\"refs/tags/)\d+\.\d+\.\d+" | tail -n -1)
+    ## avoid rc/beta/alpha
+    #GEOS_VERSION=$(wget -qO- "https://api.github.com/repos/libgeos/geos/git/refs/tags" | grep -oP "(?<=\"ref\":\s\"refs/tags/)\d+\.\d+\.\d+" | tail -n -1)
+    GEOS_VERSION=$(wget -qO- "https://api.github.com/repos/libgeos/geos/git/refs/tags" | grep -oP "(?<=\"ref\":\s\"refs/tags/)\d+\.\d+\.\d+.*" | grep -v "beta" | grep -v "rc" | grep -v alpha | sed 's/,*$//g' | sed 's/"*$//g' | tail -n 1)
 fi
 
 ## purge existing directories to permit re-run of script with updated versions
