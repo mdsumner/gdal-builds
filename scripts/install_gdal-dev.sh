@@ -83,6 +83,8 @@ apt-get install -y --fix-missing --no-install-recommends \
     libfreexl-dev \
     libfyba-dev \
     libgif-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
     libheif-dev \
     libhdf4-alt-dev \
     libhdf5-serial-dev \
@@ -225,6 +227,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        affinity \
        AzureStor \
        biglm \
+       colourvalues \
        crew \
        crew.cluster \
        dotenv \
@@ -254,10 +257,12 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        polyclip \
        quadmesh \
        rbgm \
+       rgl \
        reticulate \
        rsi \
        rslurm \
        rstac \
+       RTriangle \
        sf \
        sfheaders \
        silicate \
@@ -267,6 +272,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        tarchetypes \
        targets \
        terra \
+       terrainmeshr \
        tidync \
        trip \
        tripEstimation \
@@ -281,7 +287,7 @@ Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "Aust
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
-Rscript -e 'devtools::install_github("hypertidy/anglr")'
+#Rscript -e 'devtools::install_github("hypertidy/anglr")'
 
 Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
