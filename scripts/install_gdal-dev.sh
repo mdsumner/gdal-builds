@@ -124,6 +124,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     python3-numpy \
     python3-setuptools \
     qpdf \
+    r-cran-rjags \
     rsync \
     sqlite3 \
     swig \
@@ -131,7 +132,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     wget \
     zlib1g-dev \
     gmt gmt-dcw gmt-gshhg
-    
+
 ## geoparquet support
 wget https://apache.jfrog.io/artifactory/arrow/"$(lsb_release --id --short | tr '[:upper:]' '[:lower:]')"/apache-arrow-apt-source-latest-"$(lsb_release --codename --short)".deb
 apt_install -y -V ./apache-arrow-apt-source-latest-"$(lsb_release --codename --short)".deb
@@ -261,6 +262,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        rbgm \
        rgl \
        reticulate \
+       rjags \
        rsi \
        rslurm \
        rstac \
