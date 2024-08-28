@@ -125,6 +125,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     python3-setuptools \
     qpdf \
     r-cran-rjags \
+    r-cran-snowfall \
     rsync \
     sqlite3 \
     swig \
