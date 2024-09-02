@@ -35,6 +35,6 @@ RUN  apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrad
       && python3 -m pip install pystac-client cartopy pooch \
       && python3 -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && python3 -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
-      && python3 -m pip install stac-geoparquet pyarrow deltalake lonboard
+      && python3 -m pip install stac-geoparquet pyarrow deltalake lonboard  accessnri access-nri-intake
 
 RUN unset MAKEFLAGS
