@@ -6,7 +6,6 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.description="A build of GDAL and rocker for use on ubuntu" \
       org.opencontainers.image.authors="Michael Sumner <mdsumner@gmail.com>"
 
-
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
