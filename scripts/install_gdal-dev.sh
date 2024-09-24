@@ -213,6 +213,7 @@ cd gdal
 if [[ -n "$GDAL_TAG" ]]; then
   git checkout ${GDAL_TAG}
 fi
+apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip
 python3 -m pip install -r ./doc/requirements.txt
 python3 -m pip install -r ./autotest/requirements.txt
 mkdir build
