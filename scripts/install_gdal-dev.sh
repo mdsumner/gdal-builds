@@ -121,7 +121,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     nco \
     pkg-config \
     python3-dev \
-    python3-numpy \
+   # python3-numpy \
     python3-setuptools \
     qpdf \
     r-cran-rjags \
@@ -133,6 +133,11 @@ apt-get install -y --fix-missing --no-install-recommends \
     wget \
     zlib1g-dev \
     gmt gmt-dcw gmt-gshhg
+
+apt-get install -y --fix-missing --no-install-recommends python3-pip   && pip3 install --upgrade pip
+python3 -m pip install numpy>=2.0
+
+#pip install example-package>=2.0.1
 
 ## geoparquet support
 wget https://apache.jfrog.io/artifactory/arrow/"$(lsb_release --id --short | tr '[:upper:]' '[:lower:]')"/apache-arrow-apt-source-latest-"$(lsb_release --codename --short)".deb
