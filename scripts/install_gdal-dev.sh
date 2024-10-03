@@ -121,7 +121,6 @@ apt-get install -y --fix-missing --no-install-recommends \
     nco \
     pkg-config \
     python3-dev \
-   # python3-numpy \
     python3-setuptools \
     qpdf \
     r-cran-rjags \
@@ -134,6 +133,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     zlib1g-dev \
     gmt gmt-dcw gmt-gshhg
 
+# python3-numpy \
 apt-get install -y --fix-missing --no-install-recommends python3-pip   && pip3 install --upgrade pip
 python3 -m pip install numpy>=2.0
 
