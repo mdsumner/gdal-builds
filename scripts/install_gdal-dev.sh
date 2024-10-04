@@ -131,12 +131,13 @@ apt-get install -y --fix-missing --no-install-recommends \
     unixodbc-dev \
     wget \
     zlib1g-dev \
-    gmt gmt-dcw gmt-gshhg
+    gmt gmt-dcw gmt-gshhg \
+    python3-numpy
 
-# python3-numpy \
-apt-get install -y --fix-missing --no-install-recommends python3-pip   && pip3 install --upgrade pip
-ldconfig
-python3 -m pip install numpy>=2.0
+
+#apt-get install -y --fix-missing --no-install-recommends python3-pip   && pip3 install --upgrade pip
+#ldconfig
+#python3 -m pip install numpy>=2.0
 
 
 ## geoparquet support
