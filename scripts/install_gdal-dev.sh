@@ -220,8 +220,8 @@ if [[ -n "$GDAL_TAG" ]]; then
   git checkout ${GDAL_TAG}
 fi
 apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip
-python3 -m pip install -r ./doc/requirements.txt
-python3 -m pip install -r ./autotest/requirements.txt
+python3 -m pip install -r ./doc/requirements.txt --break-system-packages
+python3 -m pip install -r ./autotest/requirements.txt --break-system-packages
 mkdir build
 cd ./build
 # cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr   -DBUILD_JAVA_BINDINGS:BOOL=OFF -DBUILD_CSHARP_BINDINGS:BOOL=OFF
