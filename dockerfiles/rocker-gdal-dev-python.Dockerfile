@@ -34,15 +34,11 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
             g++
 
 
-RUN python3 -m venv workenv
-RUN . workenv/bin/activate
-#RUN python3 -m pip install --upgrade pip
-
-#&&  python3 -m pip install 'pytest-cov>=2.2.0' 'pytest-randomly==3.10.1' 'affine~=2.3.0' 'attrs>=19.2.0' 'boto3>=1.3.1' 'click~=8.0'  'cligj>=0.5'  'snuggs~=1.4.0' 'setuptools>=20.0' 'pyparsing~=3.1'
-
-RUN python3 -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing
-
-RUN  python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
+RUN python3 -m venv workenv \
+    && . workenv/bin/activate \
+    && python3 -m pip install --upgrade pip \
+    && python3 -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
+    && python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
       && python3 -m pip install setuptools wheel cython \
       && python3 -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
       &&  python3 -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
