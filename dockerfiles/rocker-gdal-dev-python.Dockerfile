@@ -43,11 +43,13 @@ python3 -m venv workenv
 . workenv/bin/activate
 python -m pip install --upgrade pip
 
-#&&  python3 -m pip install 'pytest-cov>=2.2.0' 'pytest-randomly==3.10.1' 'affine~=2.3.0' 'attrs>=19.2.0' 'boto3>=1.3.1' 'click~=8.0' click-plugins 'cligj>=0.5'  'snuggs~=1.4.0' 'setuptools>=20.0' 'pyparsing~=3.1'
+#&&  python3 -m pip install 'pytest-cov>=2.2.0' 'pytest-randomly==3.10.1' 'affine~=2.3.0' 'attrs>=19.2.0' 'boto3>=1.3.1' 'click~=8.0'  'cligj>=0.5'  'snuggs~=1.4.0' 'setuptools>=20.0' 'pyparsing~=3.1'
 
-RUN  python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  \
-      && python3 -m pip install setuptools>=61.0.0 wheel cython>=3.0 \
-      && python3 -m pip install shapely>=2.0.2 --no-binary :all: \
+RUN python3 -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing
+
+RUN  python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
+      && python3 -m pip install setuptools wheel cython \
+      && python3 -m pip install shapely--no-binary :all: \
       && python3 -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
       &&  python3 -m pip install rasterio fiona pyogrio --no-binary rasterio,fiona,pyogrio \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
