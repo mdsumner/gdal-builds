@@ -27,21 +27,16 @@ RUN   apt-get update \
       &&  add-apt-repository -y ppa:deadsnakes/ppa
 
      apt-get update && apt-get install -y --no-install-recommends \
-            python3.11 \
-            python3.11-dev \
-            python3.11-venv \
+            python3.12 \
+            python3.12-dev \
+            python3.12-venv \
             python3-pip \
             g++
 
-     apt-get update && apt-get install -y --no-install-recommends \
-            python3-dev \
-            python3-venv \
-            python3-pip \
-            g++
 
 python3 -m venv workenv
 . workenv/bin/activate
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 #&&  python3 -m pip install 'pytest-cov>=2.2.0' 'pytest-randomly==3.10.1' 'affine~=2.3.0' 'attrs>=19.2.0' 'boto3>=1.3.1' 'click~=8.0'  'cligj>=0.5'  'snuggs~=1.4.0' 'setuptools>=20.0' 'pyparsing~=3.1'
 
@@ -49,12 +44,9 @@ RUN python3 -m pip install pytest-cov pytest-randomly affine attrs boto3 click c
 
 RUN  python3 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
       && python3 -m pip install setuptools wheel cython \
-      && python3 -m pip install shapely--no-binary :all: \
       && python3 -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
-      &&  python3 -m pip install rasterio fiona pyogrio --no-binary rasterio,fiona,pyogrio \
+      &&  python3 -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
       &&  python3 -m pip install  pytz tzdata pandas xarray \
-      && python3 -m pip install pyproj  --no-binary pyproj \
-      && python3 -m pip install geopandas  --no-binary geopandas \
       &&  python3 -m pip install odc-geo  --no-binary odc-geo \
       &&  python3 -m pip install rioxarray  --no-binary rioxarray \
       && python3 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
