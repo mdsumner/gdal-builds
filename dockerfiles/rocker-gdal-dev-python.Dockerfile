@@ -33,21 +33,21 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
 
 RUN python3.11 -m venv workenv \
     && . workenv/bin/activate \
-    && python3.11 -m pip install --upgrade pip \
-    && python3.11 -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
-    && python3.11 -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
-      && python3.11 -m pip install setuptools wheel cython \
-      && python3.11 -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
-      &&  python3.11 -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
-      &&  python3.11 -m pip install  pytz tzdata pandas xarray \
-      &&  python3.11 -m pip install odc-geo  --no-binary odc-geo \
-      &&  python3.11 -m pip install rioxarray  --no-binary rioxarray \
-      && python3.11 -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
-      &&  python3.11 -m pip install stackstac  \
-      && python3.11 -m pip install pystac-client cartopy pooch \
-      && python3.11 -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
-      && python3.11 -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
-      && python3.11 -m pip install stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake
+    && python -m pip install --upgrade pip \
+    && python -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
+    && python -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
+      && python -m pip install setuptools wheel cython \
+      && python -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
+      &&  python -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
+      &&  python -m pip install  pytz tzdata pandas xarray \
+      &&  python -m pip install odc-geo  --no-binary odc-geo \
+      &&  python -m pip install rioxarray  --no-binary rioxarray \
+      && python -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
+      &&  python -m pip install stackstac  \
+      && python -m pip install pystac-client cartopy pooch \
+      && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
+      && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
+      && python -m pip install stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake
 
 
 RUN unset MAKEFLAGS
