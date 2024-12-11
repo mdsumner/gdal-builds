@@ -10,9 +10,6 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
 
-#COPY scripts/install_tidyverse.sh /rocker_scripts/install_tidyverse.sh
-#RUN /rocker_scripts/install_tidyverse.sh
-
 
 COPY scripts/install_gdal-dev.sh /rocker_scripts/install_gdal-dev.sh
 

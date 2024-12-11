@@ -135,9 +135,9 @@ apt-get install -y --fix-missing --no-install-recommends \
     python3-numpy
 
 
-#apt-get install -y --fix-missing --no-install-recommends python3-pip   && pip3 install --upgrade pip
-#ldconfig
-#python3 -m pip install numpy>=2.0
+apt-get update && apt-get  install python3-pip  -y ##&& pip3 install --upgrade pip
+
+
 
 
 ## geoparquet support
@@ -219,7 +219,6 @@ cd gdal
 if [[ -n "$GDAL_TAG" ]]; then
   git checkout ${GDAL_TAG}
 fi
-apt-get update && apt-get  install python3-pip  -y && pip3 install --upgrade pip
 python3 -m pip install -r ./doc/requirements.txt --break-system-packages
 python3 -m pip install -r ./autotest/requirements.txt --break-system-packages
 mkdir build
