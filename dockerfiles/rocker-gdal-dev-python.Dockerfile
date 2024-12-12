@@ -47,7 +47,7 @@ RUN python3.11 -m venv workenv \
       && python -m pip install pystac-client cartopy pooch \
       && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
-      && python -m pip install stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake
+      && python -m pip install fastparquet stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake
 
 
 RUN unset MAKEFLAGS
