@@ -139,8 +139,6 @@ apt-get install -y --fix-missing --no-install-recommends \
 apt-get update && apt-get  install python3-pip  -y ##&& pip3 install --upgrade pip
 
 
-
-
 ## geoparquet support
 wget https://apache.jfrog.io/artifactory/arrow/"$(lsb_release --id --short | tr '[:upper:]' '[:lower:]')"/apache-arrow-apt-source-latest-"$(lsb_release --codename --short)".deb
 apt_install -y -V ./apache-arrow-apt-source-latest-"$(lsb_release --codename --short)".deb
