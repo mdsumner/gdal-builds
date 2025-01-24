@@ -236,6 +236,7 @@ export RETICULATE_PYTHON=/usr/bin/python3
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        adbcdrivermanager \
        affinity \
+       archive \
        AzureStor \
        biglm \
        colourvalues \
@@ -246,6 +247,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        exactextractr \
        fasterize \
        fields \
+       fst \
        furrr \
        future.batchtools \
        gdalcubes \
@@ -266,6 +268,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        multidplyr \
        osmdata \
        polyclip \
+       qs \
        quadmesh \
        rbgm \
        rgl \
