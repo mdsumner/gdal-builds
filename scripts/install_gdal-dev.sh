@@ -242,6 +242,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        colourvalues \
        crew \
        crew.cluster \
+       crul \
        dotenv \
        duckdbfs \
        exactextractr \
