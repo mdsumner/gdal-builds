@@ -31,7 +31,7 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
             python3-pip \
             g++
 
-
+## fastparquet no-binary (and others) else triggers downgrade of numpy to 1.26.4 
 RUN python3.11 -m venv workenv \
     && . workenv/bin/activate \
     && python -m pip install --upgrade pip \
@@ -48,7 +48,7 @@ RUN python3.11 -m venv workenv \
       && python -m pip install pystac-client cartopy pooch \
       && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
-      && python -m pip install fastparquet --no-binary fastparquet \  ## else triggers downgrade of numpy to 1.26.4 
+      && python -m pip install fastparquet --no-binary fastparquet \  
       && python -m pip install  stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake ipytree
 
 ENV PATH="/workenv/bin:$PATH"
