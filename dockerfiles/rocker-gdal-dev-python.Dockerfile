@@ -50,6 +50,6 @@ RUN python3.11 -m venv workenv \
       && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
       && python -m pip install fastparquet stac-geoparquet pyarrow deltalake arraylake lonboard  access-nri-intake ipytree
 
-
+ENV PATH="/workenv/bin:$PATH"
 
 RUN unset MAKEFLAGS
