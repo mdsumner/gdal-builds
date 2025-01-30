@@ -35,7 +35,7 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
 RUN python3.11 -m venv workenv \
     && . workenv/bin/activate \
     && python -m pip install --upgrade pip \
-    && python -m pip install pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
+    && python -m pip install numpy pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
     && python -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
       && python -m pip install setuptools wheel cython \
       && python -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
