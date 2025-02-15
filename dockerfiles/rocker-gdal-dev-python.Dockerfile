@@ -51,7 +51,7 @@ RUN python3.11 -m venv workenv \
       && python -m pip install fastparquet arraylake --no-binary fastparquet,arraylake \  
       && python -m pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && python -m pip install "numpy>2" \
-      && python -m pip install stacrs odc-stac
+      && python -m pip install stacrs odc-stac h5pyd
 
 
 
