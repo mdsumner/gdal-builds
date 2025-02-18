@@ -303,7 +303,9 @@ Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "Aust
 
 Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
-#Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
+Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
+
+Rscript -e 'BiocManager::install("Rarr")'
 
 Rscript -e 'devtools::install_github(c("mdsumner/sooty"))'
 
