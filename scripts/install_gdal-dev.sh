@@ -106,6 +106,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     libpoppler-dev \
     libpoppler-private-dev \
     libqhull-dev \
+    libspatialite-dev \
     libsqlite3-dev \
     libssl-dev \
     libtiff5-dev \
