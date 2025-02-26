@@ -302,7 +302,7 @@ Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapou
 
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "AustralianAntarcticDivision/Grym", "ropensci/bowerbird"), Ncpus = 4)'
 
-Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
+## Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
