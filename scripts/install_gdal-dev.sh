@@ -308,7 +308,7 @@ Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr")
 
 Rscript -e 'BiocManager::install("Rarr")'
 
-Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
+#Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
 
 Rscript -e 'devtools::install_github(c("mdsumner/sooty"))'
 
