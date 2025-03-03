@@ -40,7 +40,7 @@ RUN python3.12 -m venv workenv \
       && python -m pip install setuptools wheel cython \
       && python -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
       &&  python -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
-      &&  python -m pip install  pytz tzdata pandas xarray \
+      &&  python -m pip install  pytz tzdata pandas "xarray>=2025.1.1" \
       &&  python -m pip install odc-geo  --no-binary odc-geo \
       &&  python -m pip install rioxarray  --no-binary rioxarray \
       && python -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
@@ -48,7 +48,7 @@ RUN python3.12 -m venv workenv \
       && python -m pip install pystac-client cartopy pooch \
       && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
-      && python -m pip install icechunk fastparquet arraylake --no-binary fastparquet,arraylake \  
+      && python -m pip install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
       && python -m pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && python -m pip install "numpy>2" \
       && python -m pip install stacrs odc-stac h5pyd
