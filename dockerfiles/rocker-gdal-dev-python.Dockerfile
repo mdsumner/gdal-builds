@@ -51,7 +51,7 @@ RUN python3.12 -m venv workenv \
       && python -m pip install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
       && python -m pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && python -m pip install "numpy>2" \
-      && python -m pip install stacrs odc-stac h5pyd
+      && python -m pip install stacrs odc-stac h5pyd async-tiff
 
 
 
