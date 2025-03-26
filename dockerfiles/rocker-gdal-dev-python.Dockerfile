@@ -47,11 +47,13 @@ RUN python3.12 -m venv workenv \
       &&  python -m pip install stackstac  \
       && python -m pip install pystac-client cartopy pooch \
       && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
-      && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile VirtualiZarr pygmt rechunker \
+      && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
       && python -m pip install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
       && python -m pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && python -m pip install "numpy>2" \
-      && python -m pip install stacrs odc-stac h5pyd async-tiff
+      && python -m pip install stacrs odc-stac h5pyd async-tiff \
+      && python -m pip install git+https://github.com/zarr-developers/VirtualiZarr@open_virtual_mfdataset
+
 
 
 
