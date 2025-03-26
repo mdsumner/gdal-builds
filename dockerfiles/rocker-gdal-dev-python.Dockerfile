@@ -45,7 +45,7 @@ RUN python3.12 -m venv workenv \
       && uv pip install fiona --no-binary fiona \
       && uv pip install pyogrio --no-binary pyogrio \
       && uv pip install shapely --no-binary shapely \
-      && uv pip install  --no-binary pyproj \
+      && uv pip install pyproj --no-binary pyproj \
       && uv pip install geopandas --no-binary geopandas \
       &&  uv pip install  pytz tzdata pandas xarray \
       &&  uv pip install odc-geo  --no-binary odc-geo \
