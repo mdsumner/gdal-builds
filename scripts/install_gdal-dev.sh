@@ -300,13 +300,14 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
 
 Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
 
-Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant", "AustralianAntarcticDivision/Grym", "ropensci/bowerbird"), Ncpus = 4)'
+#"AustralianAntarcticDivision/Grym"
+Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
 
 ## Rscript -e 'devtools::install_github("eliocamp/rcmip6")'
 
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
-#Rscript -e 'BiocManager::install("Rarr")'
+Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
 
 #Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
 
