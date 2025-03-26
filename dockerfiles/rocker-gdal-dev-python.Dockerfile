@@ -33,7 +33,7 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
 
 ## uv installs, except when need
 ## no-binary (and others) else triggers downgrade of numpy to 1.26.4 
-python3.12 -m venv workenv \
+RUN python3.12 -m venv workenv \
     && . workenv/bin/activate \
     && python -m pip install uv \
     && uv pip install --upgrade pip \
@@ -41,18 +41,23 @@ python3.12 -m venv workenv \
     && uv pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
       && uv pip install setuptools wheel cython \
       && uv pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
-      &&  python -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
-      &&  uv pip install  pytz tzdata pandas "xarray" \
-      &&  python -m  install odc-geo  --no-binary odc-geo \
-      &&  python -m  install rioxarray  --no-binary rioxarray \
+      &&  uv pip install rasterio --no-binary rasterio \
+      && uv pip install fiona --no-binary fiona \
+      && uv pip install pyogrio --no-binary pyogrio \
+      && uv pip install shapely --no-binary shapely \
+      && uv pip install  --no-binary pyproj \
+      && uv pip install geopandas --no-binary geopandas \
+      &&  uv pip install  pytz tzdata pandas xarray \
+      &&  uv pip install odc-geo  --no-binary odc-geo \
+      &&  uv  pip install rioxarray  --no-binary rioxarray \
       && uv pip install cloudpickle partd pyaml dask zipp importlib toolz \
       &&  uv pip install stackstac  \
       && uv pip install pystac-client cartopy pooch \
       && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
-      && python -m  install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
+      && uv pip install arraylake[icechunk]  icechunk \
+      && uv pip install fastparquet  --no-binary fastparquet \
       && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
-      && uv pip install "numpy>2" \
       && uv pip install stacrs odc-stac h5pyd async-tiff \
       && uv pip install git+https://github.com/zarr-developers/VirtualiZarr@open_virtual_mfdataset
 
