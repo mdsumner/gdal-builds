@@ -31,28 +31,30 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
             python3-pip \
             g++
 
-## fastparquet no-binary (and others) else triggers downgrade of numpy to 1.26.4 
-RUN python3.12 -m venv workenv \
+## uv installs, except when need
+## no-binary (and others) else triggers downgrade of numpy to 1.26.4 
+python3.12 -m venv workenv \
     && . workenv/bin/activate \
-    && python -m pip install --upgrade pip \
-    && python -m pip install "numpy>2" pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
-    && python -m pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
-      && python -m pip install setuptools wheel cython \
-      && python -m pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
+    && python -m pip install uv \
+    && uv pip install --upgrade pip \
+    && uv pip install "numpy>2" pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
+    && uv pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
+      && uv pip install setuptools wheel cython \
+      && uv pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
       &&  python -m pip install rasterio fiona pyogrio pyproj geopandas  --no-binary rasterio,fiona,pyogrio,shapely,pyproj,geopandas \
-      &&  python -m pip install  pytz tzdata pandas "xarray>=2025.1.1" \
-      &&  python -m pip install odc-geo  --no-binary odc-geo \
-      &&  python -m pip install rioxarray  --no-binary rioxarray \
-      && python -m pip install cloudpickle partd pyaml dask zipp importlib toolz \
-      &&  python -m pip install stackstac  \
-      && python -m pip install pystac-client cartopy pooch \
-      && python -m pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
-      && python -m pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
-      && python -m pip install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
-      && python -m pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
-      && python -m pip install "numpy>2" \
-      && python -m pip install stacrs odc-stac h5pyd async-tiff \
-      && python -m pip install git+https://github.com/zarr-developers/VirtualiZarr@open_virtual_mfdataset
+      &&  uv pip install  pytz tzdata pandas "xarray" \
+      &&  python -m  install odc-geo  --no-binary odc-geo \
+      &&  python -m  install rioxarray  --no-binary rioxarray \
+      && uv pip install cloudpickle partd pyaml dask zipp importlib toolz \
+      &&  uv pip install stackstac  \
+      && uv pip install pystac-client cartopy pooch \
+      && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
+      && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
+      && python -m  install arraylake[icechunk]  icechunk fastparquet  --no-binary fastparquet \  
+      && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
+      && uv pip install "numpy>2" \
+      && uv pip install stacrs odc-stac h5pyd async-tiff \
+      && uv pip install git+https://github.com/zarr-developers/VirtualiZarr@open_virtual_mfdataset
 
 
 
