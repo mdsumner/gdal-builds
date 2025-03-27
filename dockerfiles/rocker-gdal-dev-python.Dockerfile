@@ -1,6 +1,5 @@
 FROM ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev
 
-
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
       org.opencontainers.image.vendor="Hypertidy Project" \
