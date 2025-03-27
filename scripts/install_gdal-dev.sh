@@ -311,11 +311,11 @@ Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
 
 #Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
 
-Rscript -e 'devtools::install_github(c("mdsumner/sooty"))'
+Rscript -e 'devtools::install_github(c("mdsumner/sooty", "mdsumner/bluelink", "mdsumner/pymdim", "mdsumner/gdalraster@multidimnew", "mdsumner/ngdal"))'
 
 Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
-Rscript -e 'devtools::install_github(c("USDAForestService/gdalraster", "paleolimbot/geoarrow", "r-lib/revdepcheck"))'
+Rscript -e 'devtools::install_github(c( "paleolimbot/geoarrow", "r-lib/revdepcheck"))'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
