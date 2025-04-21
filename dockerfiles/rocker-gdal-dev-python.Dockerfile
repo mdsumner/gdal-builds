@@ -52,7 +52,7 @@ RUN python3.12 -m venv workenv \
       && uv pip install cloudpickle partd pyaml dask zipp importlib toolz \
       &&  uv pip install stackstac  \
       && uv pip install pystac-client cartopy pooch \
-      && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
+      && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk coiled \
       && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
       && uv pip install arraylake[icechunk]  icechunk polars obstore \
       && uv pip install fastparquet  --no-binary fastparquet \
