@@ -36,7 +36,7 @@ RUN python3.12 -m venv workenv \
     && . workenv/bin/activate \
     && python -m pip install uv \
     && uv pip install --upgrade pip \
-    && uv pip install "numpy>2" pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing \
+    && uv pip install "numpy>2" pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing  \
     && uv pip install matplotlib  cftime  scipy zarr aiohttp requests fsspec h5netcdf netCDF4  click-plugins \
       && uv pip install setuptools wheel cython \
       && uv pip install delocate  hypothesis mypy numpydoc packaging pytest pytest-cov pytest-randomly  sphinx sphinx-click sphinx-rtd-theme  \
@@ -54,7 +54,7 @@ RUN python3.12 -m venv workenv \
       && uv pip install pystac-client cartopy pooch \
       && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk \
       && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
-      && uv pip install arraylake[icechunk]  icechunk \
+      && uv pip install arraylake[icechunk]  icechunk polars obstore \
       && uv pip install fastparquet  --no-binary fastparquet \
       && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && uv pip install stacrs odc-stac h5pyd async-tiff imagecodecs \
