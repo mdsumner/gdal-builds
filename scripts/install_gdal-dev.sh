@@ -303,7 +303,7 @@ Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapou
 #"AustralianAntarcticDivision/Grym"
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
 
-Rscript -e 'devtools::install_github("tidyverse/purrr"); devtools::install_cran("cran")'
+Rscript -e 'devtools::install_github("tidyverse/purrr"); devtools::install_cran("carrier")'
 
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
