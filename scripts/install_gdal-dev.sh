@@ -79,7 +79,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     libcrypto++-dev \
     libcurl4-openssl-dev \
     libdeflate-dev \
-    libexpat-dev \
+    libexpat1-dev \
     libfreexl-dev \
     libfyba-dev \
     libgif-dev \
@@ -87,7 +87,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     libglu1-mesa-dev \
     libheif-dev \
     libhdf4-alt-dev \
-    libhdf5-serial-dev \
+    libhdf5-dev \
     libjpeg-dev \
     libjq-dev \  
     libkml-dev \
