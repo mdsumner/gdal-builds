@@ -134,9 +134,9 @@ apt-get install -y --fix-missing --no-install-recommends \
     unixodbc-dev \
     wget \
     zlib1g-dev \
-    gmt gmt-dcw gmt-gshhg \
     python3-numpy
 
+##     gmt gmt-dcw gmt-gshhg \
 
 apt-get update && apt-get  install python3-pip  -y ##&& pip3 install --upgrade pip
 
