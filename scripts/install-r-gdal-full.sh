@@ -76,7 +76,7 @@ Rscript -e 'install.packages("gdalraster", repos = c("https://usdaforestservice.
 ## get the artefacts
 mkdir dev-pkgs
 cd dev-pkgs
-git clone https://github.com/USDAForestService.git
+git clone https://github.com/USDAForestService/gdalraster.git
 cd ..
 
 mkdir cran
