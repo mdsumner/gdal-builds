@@ -55,9 +55,7 @@ apt-get -y install --no-install-recommends libxml2-dev
 # libcurl is needed for some gdalraster suggested packages or their dependencies
 apt-get -y install --no-install-recommends libcurl4-openssl-dev
 
-
 rm -rf /var/lib/apt/lists/*
-
 
 #export MAKEFLAGS=-j4
 Rscript -e 'install.packages(c("Rcpp", "RcppInt64", "nanoarrow", "bit64", "wk", "xml2"), Ncpus = 6)'
