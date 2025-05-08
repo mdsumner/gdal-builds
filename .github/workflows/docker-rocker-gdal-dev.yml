@@ -2,7 +2,7 @@ name: Docker Image CI - rocker-gdal-dev
 on:
   workflow_dispatch: null
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 0 1,8,15,22,29 * *'
   push:
     paths: ['dockerfiles/rocker-gdal-dev.Dockerfile', '.github/workflows/docker-rocker-gdal-dev.yml', 'scripts/install_gdal-dev.sh', 'scripts/install_tidyverse.sh']
 jobs:
