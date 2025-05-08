@@ -1,34 +1,66 @@
 #!/bin/bash
 set -e
 
-# install R
-# *** check latest instructions from: https://cloud.r-project.org/bin/linux/ubuntu/ ***
-# latest CRAN instructions for R 4.5.0 are copied here:
-###############################################################################
-# update indices
-apt update -qq
-# install two helper packages we need
-apt install --no-install-recommends software-properties-common dirmngr
-# add the signing key (by Michael Rutter) for these repos
-# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
-# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
-wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
-# add the repo from CRAN -- lsb_release adjusts to 'noble' or 'jammy' or ... as needed
-add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-# install R itself
-apt install --no-install-recommends r-base
-###############################################################################
+. /etc/os-release printf '%s\n' "$VERSION_CODENAME"
 
-# add dev
-apt install --no-install-recommends r-base-dev
+## this from -----------------------------------------------------------------------------
+## https://github.com/rocker-org/rocker-versioned2/blob/master/scripts/install_R_ppa.sh
+CRAN_LINUX_VERSION=${CRAN_LINUX_VERSION:-cran40}
+LANG=${LANG:-en_US.UTF-8}
+LC_ALL=${LC_ALL:-en_US.UTF-8}
+DEBIAN_FRONTEND=noninteractive
+
+# Set up and install R
+R_HOME=${R_HOME:-/usr/lib/R}
+
+#R_VERSION=${R_VERSION}
+
+apt-get update
+
+apt-get -y install --no-install-recommends \
+      ca-certificates \
+      less \
+      libopenblas-base \
+      locales \
+      vim-tiny \
+      wget \
+      dirmngr \
+      gpg \
+      gpg-agent
+
+echo "deb http://cloud.r-project.org/bin/linux/ubuntu ${VERSION_CODENAME}-${CRAN_LINUX_VERSION}/" >> /etc/apt/sources.list
+
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
+
+
+# Wildcard * at end of version will grab (latest) patch of requested version
+apt-get update && apt-get -y install --no-install-recommends r-base-dev=${R_VERSION}*
+
+
+## Add PPAs: NOTE this will mean that installing binary R packages won't be version stable.
+##
+## These are required at least for bionic-based images since 3.4 r binaries are
+
+# echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+# locale-gen en_US.utf8
+# /usr/sbin/update-locale LANG=${LANG}
+
+## -----------------------------------------------------------------------
+
 
 # system requirement for package xml2 which is a gdalraster dependency
-apt install libxml2-dev
+apt-get -y install --no-install-recommends libxml2-dev
 
 # libcurl is needed for some gdalraster suggested packages or their dependencies
-apt install libcurl4-openssl-dev
+apt-get -y install --no-install-recommends libcurl4-openssl-dev
 
-Rscript -e 'install.packages(c("Rcpp", "RcppInt64", "nanoarrow", "bit64", "wk", "xml2"))'
+
+rm -rf /var/lib/apt/lists/*
+
+
+#export MAKEFLAGS=-j4
+Rscript -e 'install.packages(c("Rcpp", "RcppInt64", "nanoarrow", "bit64", "wk", "xml2"), Ncpus = 6)'
 
 # install gdalraster suggested packages
 # This takes a while since these packages also need several of their own dependencies.
@@ -40,8 +72,8 @@ Rscript -e 'install.packages(c("gt", "knitr", "rmarkdown", "scales", "testthat")
 Rscript -e 'install.packages("gdalraster", repos = c("https://usdaforestservice.r-universe.dev", "https://cran.r-project.org"), INSTALL_opts = "--install-tests")'
 
 ## get the artefacts
-mkdir dev
-cd dev
+mkdir dev-pkgs
+cd dev-pkgs
 git clone https://github.com/USDAForestService.git
 cd ..
 
