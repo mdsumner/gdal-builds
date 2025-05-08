@@ -1,4 +1,4 @@
-name: Docker Image CI - rocker-gdal-dev
+name: Docker Image CI - r-gdal-full
 on:
   workflow_dispatch: null
   schedule:
@@ -20,7 +20,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the (r-gdal-full) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/rocker-gdal-dev.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:r-gdal-full
+        run: docker build -f dockerfiles/r-gdal-full.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:r-gdal-full
       - name: Publish (r-gdal-full)
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker push ghcr.io/mdsumner/gdal-builds:r-gdal-full
