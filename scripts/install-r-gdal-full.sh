@@ -26,10 +26,14 @@ apt-get -y install --no-install-recommends \
       wget \
       dirmngr \
       gpg \
-      gpg-agent
+      gpg-agent \
+      git
 
 echo "deb http://cloud.r-project.org/bin/linux/ubuntu ${VERSION_CODENAME}-${CRAN_LINUX_VERSION}/" >> /etc/apt/sources.list
 
+## needs review:
+###  http://cloud.r-project.org/bin/linux/ubuntu/noble-cran40/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg),
+### see the DEPRECATION section in apt-key(8) for details.
 gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
 
