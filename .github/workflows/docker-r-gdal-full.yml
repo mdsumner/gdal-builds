@@ -1,0 +1,27 @@
+name: Docker Image CI - rocker-gdal-dev
+on:
+  workflow_dispatch: null
+  schedule:
+    - cron: '0 8 * * *'
+  push:
+    paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'mdsumner/gdal-builds'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the (r-gdal-full) Docker image
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker build -f dockerfiles/rocker-gdal-dev.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:r-gdal-full
+      - name: Publish (r-gdal-full)
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker push ghcr.io/mdsumner/gdal-builds:r-gdal-full
+

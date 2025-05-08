@@ -9,8 +9,6 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-
-
 COPY scripts/install_gdal-dev.sh /rocker_scripts/install_gdal-dev.sh
 
 RUN /rocker_scripts/install_gdal-dev.sh
