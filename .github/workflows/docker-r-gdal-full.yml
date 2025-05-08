@@ -2,7 +2,7 @@ name: Docker Image CI - r-gdal-full
 on:
   workflow_dispatch: null
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 0 1 * *'
   push:
     paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
 jobs:
