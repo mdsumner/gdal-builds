@@ -1,4 +1,4 @@
-FROM ghcr.io/osgeo/gdal:alpine-normal-latest
+FROM ghcr.io/osgeo/gdal:ubuntu-full-latest
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
