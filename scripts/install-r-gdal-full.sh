@@ -17,10 +17,10 @@ R_HOME=${R_HOME:-/usr/lib/R}
 
 apt-get update
 
+      #libopenblas-base \  ## not found??
 apt-get -y install --no-install-recommends \
       ca-certificates \
       less \
-      libopenblas-base \
       locales \
       vim-tiny \
       wget \
