@@ -14,7 +14,7 @@ on:
   push:
     paths: ['dockerfiles/docker-hub-push.Dockerfile', '.github/workflows/pub-dockerhub.yml']
   schedule:
-     - cron: '0 0,10 * * *'
+     - cron: '0 10 * * 1'
 
 jobs:
   push_to_registry:
