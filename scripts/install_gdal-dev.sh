@@ -89,7 +89,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     libhdf4-alt-dev \
     libhdf5-dev \
     libjpeg-dev \
-    libjq-dev \  
+    libjq-dev \
     libkml-dev \
     liblcms2-2 \
     liblerc-dev \
