@@ -50,7 +50,7 @@ RUN python3.12 -m venv workenv \
       &&  uv pip install odc-geo  --no-binary odc-geo \
       &&  uv  pip install rioxarray  --no-binary rioxarray \
       && uv pip install cloudpickle dill partd pyaml dask zipp importlib toolz \
-      &&  uv pip install stackstac  \
+      &&  uv pip install stackstac rio-stac  \
       && uv pip install pystac-client cartopy pooch \
       && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk coiled \
       && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
