@@ -17,7 +17,6 @@ R_HOME=${R_HOME:-/usr/lib/R}
 
 apt-get update
 
-      #libopenblas-base \  ## not found??
 apt-get -y install --no-install-recommends \
       ca-certificates \
       less \
@@ -27,7 +26,9 @@ apt-get -y install --no-install-recommends \
       dirmngr \
       gpg \
       gpg-agent \
-      git
+      git \
+      libopenblas-dev \
+      liblapack-dev
 
 echo "deb http://cloud.r-project.org/bin/linux/ubuntu ${VERSION_CODENAME}-${CRAN_LINUX_VERSION}/" >> /etc/apt/sources.list
 
@@ -39,7 +40,7 @@ gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
 
 
 # Wildcard * at end of version will grab (latest) patch of requested version
-apt-get update && apt-get -y install --no-install-recommends r-base-dev=${R_VERSION}*
+#apt-get update && apt-get -y install --no-install-recommends r-base-dev=${R_VERSION}*
 
 
 ## Add PPAs: NOTE this will mean that installing binary R packages won't be version stable.
