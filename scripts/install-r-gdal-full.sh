@@ -12,12 +12,7 @@ DEBIAN_FRONTEND=noninteractive
 
 # Set up and install R
 R_HOME=${R_HOME:-/usr/lib/R}
-
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen en_US.utf8
-/usr/sbin/update-locale LANG=${LANG}
-
-#R_VERSION=${R_VERSION}
+R_VERSION=${R_VERSION}
 
 apt-get update
 
@@ -33,6 +28,10 @@ apt-get -y install --no-install-recommends \
       git \
       libopenblas-dev \
       liblapack-dev
+
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen en_US.utf8
+/usr/sbin/update-locale LANG=${LANG}
 
 echo "deb http://cloud.r-project.org/bin/linux/ubuntu ${VERSION_CODENAME}-${CRAN_LINUX_VERSION}/" >> /etc/apt/sources.list
 
