@@ -13,6 +13,10 @@ DEBIAN_FRONTEND=noninteractive
 # Set up and install R
 R_HOME=${R_HOME:-/usr/lib/R}
 
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen en_US.utf8
+/usr/sbin/update-locale LANG=${LANG}
+
 #R_VERSION=${R_VERSION}
 
 apt-get update
@@ -41,15 +45,6 @@ gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | apt-key add -
 
 # Wildcard * at end of version will grab (latest) patch of requested version
 apt-get update && apt-get -y install  r-base-dev=${R_VERSION}*
-
-
-## Add PPAs: NOTE this will mean that installing binary R packages won't be version stable.
-##
-## These are required at least for bionic-based images since 3.4 r binaries are
-
-# echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-# locale-gen en_US.utf8
-# /usr/sbin/update-locale LANG=${LANG}
 
 ## -----------------------------------------------------------------------
 
