@@ -11,4 +11,4 @@ RUN export TZ=Etc/UTC
 
 COPY scripts/install-r-gdalraster.sh /rocker_scripts/install-r-gdalraster.sh
 
-RUN /rocker_scripts/install-rgdalraster.sh
+RUN /rocker_scripts/install-r-gdalraster.sh
