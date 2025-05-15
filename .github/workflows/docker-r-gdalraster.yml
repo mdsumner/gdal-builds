@@ -2,7 +2,7 @@
 on:
   workflow_dispatch: null
   schedule:
-    - cron: '0 0 */2 * *'
+    - cron: '0 4 */2 * *'
   push:
     paths: ['dockerfiles/r-gdalraster.Dockerfile', '.github/workflows/docker-r-gdalraster.yml', 'scripts/install-r-gdalraster.sh']
 jobs:
