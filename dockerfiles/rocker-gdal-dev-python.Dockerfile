@@ -33,7 +33,7 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
 ## uv installs, except when need
 ## no-binary (and others) else triggers downgrade of numpy to 1.26.4
 #RUN python3.12 -m venv workenv \
-RUN   . workenv/bin/activate \
+RUN   . /workenv/bin/activate \
     && python -m pip install uv \
     && uv pip install --upgrade pip \
     && uv pip install "numpy>2" pytest-cov pytest-randomly affine attrs boto3 click cligj snuggs setuptools pyparsing  \

@@ -222,7 +222,7 @@ if [[ -n "$GDAL_TAG" ]]; then
 fi
 python3 -m pip install -r ./doc/requirements.txt --break-system-packages
 python3 -m pip install -r ./autotest/requirements.txt --break-system-packages
-python3 -m venv workenv && . workenv/bin/activate
+python3 -m venv /workenv && . /workenv/bin/activate
 
 mkdir build
 cd ./build
