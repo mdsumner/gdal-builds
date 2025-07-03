@@ -15,7 +15,7 @@ echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.12/dist-packages" >> 
 
 RUN export MAKEFLAGS="-j$(nproc)"
 
-  apt-get update \
+apt-get update \
       &&  apt-get -y install software-properties-common \
       &&  add-apt-repository -y ppa:deadsnakes/ppa
 

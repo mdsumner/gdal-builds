@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-COPY scripts/install-r-gdal-full.sh /rocker_scripts/install-jupylab.sh
+COPY scripts/install-jupylab.sh /rocker_scripts/install-jupylab.sh
 
 RUN /rocker_scripts/install-jupylab.sh
 

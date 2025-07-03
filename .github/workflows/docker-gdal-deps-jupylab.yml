@@ -18,7 +18,7 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - name: Build the (r-gdalraster) Docker image
+      - name: Build the (gdal-deps-jupylab) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker build -f dockerfiles/gdal-deps-jupylab.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:gdal-deps-jupylab
       - name: Publish (gdal-deps+jupylab)
