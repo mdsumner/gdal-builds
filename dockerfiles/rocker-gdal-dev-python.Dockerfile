@@ -30,6 +30,7 @@ RUN     apt-get update && apt-get install -y --no-install-recommends \
             python3-pip \
             g++
 
+
 ## uv installs, except when need
 ## no-binary (and others) else triggers downgrade of numpy to 1.26.4
 #RUN python3.12 -m venv workenv \
