@@ -12,7 +12,7 @@ rm -rf /var/lib/apt/lists/*
 
 echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.12/dist-packages" >> ~/.profile
 
-RUN export MAKEFLAGS="-j$(nproc)"
+export MAKEFLAGS="-j$(nproc)"
 
 apt-get update \
       &&  apt-get -y install software-properties-common \
@@ -42,6 +42,6 @@ cmake --build . --parallel 4 --target install
 ldconfig
 cd
 
-ENV PATH="/workenv/bin:$PATH"
+PATH="/workenv/bin:$PATH"
 
-RUN unset MAKEFLAGS
+unset MAKEFLAGS
