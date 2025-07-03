@@ -222,10 +222,12 @@ if [[ -n "$GDAL_TAG" ]]; then
 fi
 python3 -m pip install -r ./doc/requirements.txt --break-system-packages
 python3 -m pip install -r ./autotest/requirements.txt --break-system-packages
+python3 -m venv workenv && . workenv/bin/activate
+
 mkdir build
 cd ./build
 # cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr   -DBUILD_JAVA_BINDINGS:BOOL=OFF -DBUILD_CSHARP_BINDINGS:BOOL=OFF
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DPython_FIND_VIRTUALENV=ONLY -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --parallel "$CMAKE_CORES" --target install
 ldconfig
 cd /build_local
