@@ -33,14 +33,15 @@ python3.12 -m venv workenv \
 cd
 git clone https://github.com/osgeo/gdal.git
 cd gdal
-python3 -m pip install -r ../doc/requirements.txt
-python3 -m pip install -r ../autotest/requirements.txt
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Release
-cmake --build . --parallel 4 --target install
-ldconfig
+#python3 -m pip install -r ../doc/requirements.txt
+#python3 -m pip install -r ../autotest/requirements.txt
+#mkdir build
+#cd build
+#cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE=Release
+#cmake --build . --parallel 4 --target install
+#ldconfig
 cd
+
 
 PATH="/workenv/bin:$PATH"
 
