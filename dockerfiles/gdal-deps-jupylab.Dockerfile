@@ -13,4 +13,3 @@ COPY scripts/install-jupylab.sh /rocker_scripts/install-jupylab.sh
 
 RUN /rocker_scripts/install-jupylab.sh
 
-

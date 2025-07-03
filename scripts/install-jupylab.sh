@@ -12,7 +12,6 @@ rm -rf /var/lib/apt/lists/*
 
 echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.12/dist-packages" >> ~/.profile
 
-
 RUN export MAKEFLAGS="-j$(nproc)"
 
 apt-get update \
@@ -26,7 +25,7 @@ apt-get update && apt-get install -y --no-install-recommends \
             python3-pip \
             g++
 
- python3.12 -m venv workenv \
+python3.12 -m venv workenv \
     && . workenv/bin/activate \
     && python -m pip install uv \
       && uv pip install jupyter-rsession-proxy notebook jupyterlab jupyterhub
@@ -42,7 +41,6 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_UNITY_BUILD=ON  -DCMAKE_BUILD_TYPE
 cmake --build . --parallel 4 --target install
 ldconfig
 cd
-
 
 ENV PATH="/workenv/bin:$PATH"
 
