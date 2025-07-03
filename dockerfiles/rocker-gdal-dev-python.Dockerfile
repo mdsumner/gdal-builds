@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-#RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3/dist-packages" >> ~/.profile
+RUN echo "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.12/dist-packages" >> ~/.profile
 
 ## this is the full rasterio requirements (2024-01-25) sans shapely, numpy, matplotlib, fsspec, cython
 
@@ -53,12 +53,13 @@ RUN python3.12 -m venv workenv \
       &&  uv pip install stackstac rio-stac  \
       && uv pip install pystac-client cartopy pooch earthaccess \
       && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk coiled \
-      && uv pip install s3fs planetary.computer dask-expr jupyter xstac xpystac tifffile  pygmt rechunker \
+      && uv pip install s3fs planetary.computer dask-expr xstac xpystac tifffile  pygmt rechunker \
       && uv pip install arraylake[icechunk]  icechunk polars obstore \
       && uv pip install fastparquet  --no-binary fastparquet \
       && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && uv pip install stacrs odc-stac h5pyd async-tiff imagecodecs \
-      && uv pip install git+https://github.com/zarr-developers/VirtualiZarr@develop
+      && uv pip install git+https://github.com/zarr-developers/VirtualiZarr@develop \
+      && uv pip install jupyter-rsession-proxy notebook jupyterlab jupyterhub
 
 
 
