@@ -220,15 +220,32 @@ cd gdal
 if [[ -n "$GDAL_TAG" ]]; then
   git checkout ${GDAL_TAG}
 fi
-python3 -m pip install -r ./doc/requirements.txt --break-system-packages
-python3 -m pip install -r ./autotest/requirements.txt --break-system-packages
+
+apt-get update && apt-get -y install software-properties-common \
+      &&  add-apt-repository -y ppa:deadsnakes/ppa
+
+apt-get update && apt-get install -y --no-install-recommends \
+            python3.12 \
+            python3.12-dev \
+            python3.12-venv \
+            python3-pip \
+            g++
+
 python3 -m venv /workenv && . /workenv/bin/activate
+
+python -m pip install -r ./doc/requirements.txt
+python -m pip install -r ./autotest/requirements.txt
+python -m pip install setuptools
 
 mkdir build
 cd ./build
 # cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr   -DBUILD_JAVA_BINDINGS:BOOL=OFF -DBUILD_CSHARP_BINDINGS:BOOL=OFF
 cmake -DPython_FIND_VIRTUALENV=ONLY -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --parallel "$CMAKE_CORES" --target install
+## desperate times
+cp -R  swig/python/build/lib.linux-x86_64-cpython-312/osgeo/ /workenv/lib/python3.12/site-packages/
+cp -R  swig/python/build/lib.linux-x86_64-cpython-312/osgeo_utils/ /workenv/lib/python3.12/site-packages/
+
 ldconfig
 cd /build_local
 
