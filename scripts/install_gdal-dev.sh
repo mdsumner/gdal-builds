@@ -122,6 +122,7 @@ apt-get install -y --fix-missing --no-install-recommends \
     netcdf-bin \
     nco \
     pkg-config \
+    plainview \
     python3-dev \
     python3-setuptools \
     qpdf \
