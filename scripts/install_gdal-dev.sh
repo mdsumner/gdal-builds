@@ -122,7 +122,6 @@ apt-get install -y --fix-missing --no-install-recommends \
     netcdf-bin \
     nco \
     pkg-config \
-    plainview \
     python3-dev \
     python3-setuptools \
     qpdf \
@@ -292,6 +291,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
        mmand \
        multidplyr \
        osmdata \
+       plainview \
        polyclip \
        qs \
        quadmesh \
