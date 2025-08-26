@@ -340,7 +340,7 @@ Rscript -e 'devtools::install_github(c("mdsumner/sooty", "mdsumner/bluelink", "m
 
 #Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
-#Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
+Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
 
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
@@ -351,8 +351,8 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /tmp/downloaded_packages
 rm -rf /*.deb /build_thirdparty /build_local
 
-apt-get autoclean
-apt-get autoremove
+apt-get autoclean -y
+apt-get autoremove -y
 ##rm -rf /var/lib/{apt,dpkg,cache,log}
 
 
