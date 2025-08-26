@@ -18,10 +18,10 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - name: Build the (rocker-gdal-dev) Docker image
+      - name: Build the (rocker-gdal-dev-r) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/rocker-gdal-dev.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev
-      - name: Publish (rocker-gdal-dev)
+        run: docker build -f dockerfiles/rocker-gdal-dev-r.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-r
+      - name: Publish (rocker-gdal-dev-r)
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker push ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev
+        run: docker push ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-r
 
