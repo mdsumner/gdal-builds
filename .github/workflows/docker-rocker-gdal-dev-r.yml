@@ -24,4 +24,3 @@ jobs:
       - name: Publish (rocker-gdal-dev-r)
         if: github.repository == 'mdsumner/gdal-builds'
         run: docker push ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-r
-
