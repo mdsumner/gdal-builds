@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0 1,8,15,22,29 * *'
   push:
-    paths: ['dockerfiles/rocker-gdal-dev-r.Dockerfile', '.github/workflows/docker-rocker-gdal-dev-r.yml', 'install_gdal-dev-r.sh']
+    paths: ['dockerfiles/rocker-gdal-dev-r.Dockerfile', '.github/workflows/docker-rocker-gdal-dev-r.yml', 'scripts/install_gdal-dev-r.sh']
 jobs:
   build:
     runs-on: ubuntu-latest

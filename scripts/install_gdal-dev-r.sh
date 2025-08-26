@@ -59,6 +59,7 @@ install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
      future.batchtools \
      gdalcubes \
      gdalraster \
+     geoarrow \
      geodata \
      geometries \
      geos \
