@@ -28,7 +28,7 @@ apt-get update && apt-get -y install cargo
 export RETICULATE_PYTHON=/usr/bin/python3
 
 
-install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
+install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      adbcdrivermanager \
      affinity \
      archive \
@@ -149,6 +149,7 @@ Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
 ## use the SCAR r-universe package repository
 Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
 
+strip /usr/local/lib/R/site-library/*/libs/*.so
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
