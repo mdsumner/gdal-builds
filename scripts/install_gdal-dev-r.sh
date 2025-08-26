@@ -9,12 +9,6 @@ set -e
 ## build ARGs
 NCPUS=${NCPUS:-"-1"}
 
-#GDAL_VERSION=${GDAL_VERSION:-"devel"}
-GDAL_REPO=${GDAL_REPO:-"https://github.com/osgeo/gdal.git"}
-GDAL_TAG=${GDAL_TAG:-""}  ## means latest commit, otherwise v3.8.2 or an actual commit sha
-PROJ_VERSION=${PROJ_VERSION:-"latest"}
-GEOS_VERSION=${GEOS_VERSION:-"latest"}
-
 CRAN_SOURCE=${CRAN_SOURCE:-"https://cloud.r-project.org"}
 echo "options(repos = c(CRAN = '${CRAN}'))" >>"${R_HOME}/etc/Rprofile.site"
 
@@ -35,69 +29,104 @@ export RETICULATE_PYTHON=/usr/bin/python3
 
 
 install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
-       adbcdrivermanager \
-       affinity \
-       archive \
-       AzureStor \
-       biglm \
-       colourvalues \
-       crew \
-       crew.cluster \
-       crul \
-       dotenv \
-       duckdbfs \
-       exactextractr \
-       fasterize \
-       fields \
-       fst \
-       furrr \
-       future.batchtools \
-       gdalcubes \
-       gdalraster \
-       geodata \
-       geometries \
-       geos \
-       geosphere \
-       graticule \
-       gibble \
-       httptest2 \
-       jpeg \
-       knitr \
-       lwgeom \
-       mapscanner \
-       mapview \
-       minioclient \
-       mirai \
-       mmand \
-       multidplyr \
-       osmdata \
-       plainview \
-       polyclip \
-       qs \
-       quadmesh \
-       rbgm \
-       rgl \
-       reticulate \
-       rjags \
-       rsi \
-       rslurm \
-       rstac \
-       RTriangle \
-       sf \
-       sfheaders \
-       silicate \
-       sits \
-       spex \
-       stars \
-       tarchetypes \
-       targets \
-       terra \
-       terrainmeshr \
-       tidync \
-       trip \
-       tripEstimation \
-       urlchecker \
-       wk
+     adbcdrivermanager \
+     affinity \
+     archive \
+     assertthat \
+     AzureStor \
+     biglm \
+     brio \
+     callr \
+     carrier \
+     cli \
+     clisymbols \
+     colourvalues \
+     crancache \
+     crayon \
+     crew \
+     crew.cluster \
+     crul \
+     curl \
+     DBI \
+     desc \
+     dotenv \
+     duckdbfs \
+     exactextractr \
+     fasterize \
+     fields \
+     fst \
+     furrr \
+     future.batchtools \
+     gdalcubes \
+     gdalraster \
+     geodata \
+     geometries \
+     geos \
+     geosphere \
+     gibble \
+     glue \
+     gmailr \
+     graticule \
+     hms \
+     httptest2 \
+     httr \
+     jpeg \
+     jsonlite \
+     knitr \
+     lwgeom \
+     mapscanner \
+     mapview \
+     minioclient \
+     mirai \
+     mmand \
+     multidplyr \
+     osmdata \
+     paws.storage \
+     pkgbuild \
+     plainview \
+     polyclip \
+     prettyunits \
+     processx \
+     progress \
+     purrr \
+     qs \
+     quadmesh \
+     R.utils \
+     rbgm \
+     rcmdcheck \
+     rematch2 \
+     remotes \
+     reticulate \
+     rgl \
+     rjags \
+     rlang \
+     rsi \
+     rslurm \
+     RSQLite \
+     rstac \
+     RTriangle \
+     sessioninfo \
+     sf \
+     sfheaders \
+     silicate \
+     sits \
+     spex \
+     stars \
+     stringr \
+     tarchetypes \
+     targets \
+     terra \
+     terrainmeshr \
+     tibble \
+     tidync \
+     trip \
+     tripEstimation \
+     urlchecker \
+     utils \
+     whoami \
+     withr \
+     wk \
+     yaml
 
 
 
@@ -106,10 +135,6 @@ Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapou
 #"AustralianAntarcticDivision/Grym"
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
 
-Rscript -e 'devtools::install_github("tidyverse/purrr")'
-
-Rscript -e 'devtools::install_cran("carrier")'
-
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
 Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
@@ -117,8 +142,6 @@ Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
 #Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
 
 Rscript -e 'devtools::install_github(c("mdsumner/sooty", "mdsumner/bluelink", "mdsumner/pymdim", "mdsumner/ngdal"))'
-
-#Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
 
 Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
 
