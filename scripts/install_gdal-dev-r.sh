@@ -32,7 +32,9 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      affinity \
      archive \
      assertthat \
+     aws.signature \
      AzureStor \
+     base64enc \
      biglm \
      brio \
      callr \
@@ -48,6 +50,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      curl \
      DBI \
      desc \
+     digest \
      dotenv \
      duckdbfs \
      exactextractr \
@@ -81,6 +84,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      mmand \
      multidplyr \
      osmdata \
+     palr \
      paws.storage \
      pkgbuild \
      plainview \
@@ -89,6 +93,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      processx \
      progress \
      purrr \
+     PROJ \
      qs \
      quadmesh \
      R.utils \
@@ -110,6 +115,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      sfheaders \
      silicate \
      sits \
+     sooty \
      spex \
      stars \
      stringr \
@@ -123,17 +129,19 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      tripEstimation \
      urlchecker \
      utils \
+     vapour \
      whoami \
      withr \
      wk \
+     xml2 \
      yaml
 
 
 
-Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
 
 #"AustralianAntarcticDivision/Grym"
-Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
 
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
@@ -141,7 +149,7 @@ Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
 
 #Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
 
-Rscript -e 'devtools::install_github(c("mdsumner/sooty", "mdsumner/bluelink", "mdsumner/pymdim", "mdsumner/ngdal"))'
+Rscript -e 'devtools::install_github(c("mdsumner/bluelink", "mdsumner/pymdim", "mdsumner/ngdal"))'
 
 Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
 
