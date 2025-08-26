@@ -5,6 +5,8 @@ on:
     - cron: '0 3 */2 * *'
   push:
     paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
+env:
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest

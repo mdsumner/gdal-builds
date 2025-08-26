@@ -5,6 +5,8 @@ on:
     - cron: '0 4 */2 * *'
   push:
     paths: ['dockerfiles/r-gdalraster.Dockerfile', '.github/workflows/docker-r-gdalraster.yml', 'scripts/install-r-gdalraster.sh']
+env:
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
