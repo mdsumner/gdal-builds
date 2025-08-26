@@ -42,7 +42,6 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      cli \
      clisymbols \
      colourvalues \
-     crancache \
      crayon \
      crew \
      crew.cluster \
@@ -128,7 +127,6 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      trip \
      tripEstimation \
      urlchecker \
-     utils \
      vapour \
      whoami \
      withr \
@@ -138,10 +136,10 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
 
 
 
-Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"))'
 
 #"AustralianAntarcticDivision/Grym"
-Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
+Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"))'
 
 Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
 
