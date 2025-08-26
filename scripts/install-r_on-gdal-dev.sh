@@ -1,0 +1,140 @@
+
+#!/bin/bash
+set -e
+
+## Install PROJ, GDAL, GEOS from source.
+##
+## 'latest' means installing the latest release version.
+
+## build ARGs
+NCPUS=${NCPUS:-"-1"}
+
+#GDAL_VERSION=${GDAL_VERSION:-"devel"}
+GDAL_REPO=${GDAL_REPO:-"https://github.com/osgeo/gdal.git"}
+GDAL_TAG=${GDAL_TAG:-""}  ## means latest commit, otherwise v3.8.2 or an actual commit sha
+PROJ_VERSION=${PROJ_VERSION:-"latest"}
+GEOS_VERSION=${GEOS_VERSION:-"latest"}
+
+CRAN_SOURCE=${CRAN_SOURCE:-"https://cloud.r-project.org"}
+echo "options(repos = c(CRAN = '${CRAN}'))" >>"${R_HOME}/etc/Rprofile.site"
+
+# cmake does not understand "-1" as "all cpus"
+CMAKE_CORES=${NCPUS}
+if [ "${CMAKE_CORES}" = "-1" ]; then
+    CMAKE_CORES=$(nproc --all)
+fi
+
+# ;)
+export MAKEFLAGS="-j$(nproc)"
+
+
+
+apt-get update && apt-get -y install cargo
+
+export RETICULATE_PYTHON=/usr/bin/python3
+
+
+install2.r --error --skipmissing -n "$NCPUS" -r "${CRAN_SOURCE}" \
+       adbcdrivermanager \
+       affinity \
+       archive \
+       AzureStor \
+       biglm \
+       colourvalues \
+       crew \
+       crew.cluster \
+       crul \
+       dotenv \
+       duckdbfs \
+       exactextractr \
+       fasterize \
+       fields \
+       fst \
+       furrr \
+       future.batchtools \
+       gdalcubes \
+       gdalraster \
+       geodata \
+       geometries \
+       geos \
+       geosphere \
+       graticule \
+       gibble \
+       httptest2 \
+       jpeg \
+       knitr \
+       lwgeom \
+       mapscanner \
+       mapview \
+       minioclient \
+       mirai \
+       mmand \
+       multidplyr \
+       osmdata \
+       plainview \
+       polyclip \
+       qs \
+       quadmesh \
+       rbgm \
+       rgl \
+       reticulate \
+       rjags \
+       rsi \
+       rslurm \
+       rstac \
+       RTriangle \
+       sf \
+       sfheaders \
+       silicate \
+       sits \
+       spex \
+       stars \
+       tarchetypes \
+       targets \
+       terra \
+       terrainmeshr \
+       tidync \
+       trip \
+       tripEstimation \
+       urlchecker \
+       wk
+
+
+
+Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/vapour","hypertidy/grout", "hypertidy/PROJ", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"), Ncpus = 4)'
+
+#"AustralianAntarcticDivision/Grym"
+Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/palr", "AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"), Ncpus = 4)'
+
+Rscript -e 'devtools::install_github("tidyverse/purrr")'
+
+Rscript -e 'devtools::install_cran("carrier")'
+
+Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
+
+Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
+
+#Rscript -e 'remotes::install_github("DOI-USGS/rnz")'
+
+Rscript -e 'devtools::install_github(c("mdsumner/sooty", "mdsumner/bluelink", "mdsumner/pymdim", "mdsumner/ngdal"))'
+
+#Rscript -e 'devtools::install_github("geoarrow/geoarrow-r")'
+
+Rscript -e 'devtools::install_github(c("r-lib/revdepcheck"))'
+
+## use the SCAR r-universe package repository
+Rscript -e 'op <- options(repos = c(SCAR = "https://scar.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("bowerbird", Ncpus = 4); options(op)'
+
+
+# Clean up
+rm -rf /var/lib/apt/lists/*
+rm -rf /tmp/downloaded_packages
+rm -rf /*.deb /build_thirdparty /build_local
+
+apt-get autoclean -y
+apt-get autoremove -y
+##rm -rf /var/lib/{apt,dpkg,cache,log}
+
+
+unset MAKEFLAGS
+
