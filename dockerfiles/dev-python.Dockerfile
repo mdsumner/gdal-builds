@@ -10,16 +10,10 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-RUN export MAKEFLAGS="-j$(nproc)"
 
-#RUN   apt-get update \
-#      &&  apt-get -y install software-properties-common
 
-RUN     apt-get update && apt-get install -y --no-install-recommends python3-pip
-RUN cd / && python -m venv /workenv \
-   && . /workenv/bin/activate \
+RUN     apt-get update \
     && python -m pip install uv \
     && uv pip install --upgrade pip \
     && uv pip install icechunk virtualizarr
 
-RUN unset MAKEFLAGS
