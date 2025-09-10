@@ -12,11 +12,11 @@ RUN export TZ=Etc/UTC
 
 RUN export MAKEFLAGS="-j$(nproc)"
 
-RUN   apt-get update \
-      &&  apt-get -y install software-properties-common
+#RUN   apt-get update \
+#      &&  apt-get -y install software-properties-common
 
 RUN     apt-get update && apt-get install -y --no-install-recommends python3-pip
-RUN cd / && python3.12 -m venv /workenv \
+RUN cd / && python -m venv /workenv \
    && . /workenv/bin/activate \
     && python -m pip install uv \
     && uv pip install --upgrade pip \
