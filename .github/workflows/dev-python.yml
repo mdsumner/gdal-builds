@@ -1,0 +1,29 @@
+name: Docker Image CI - dev-python
+on:
+  workflow_dispatch: null
+  schedule:
+    - cron: '0 2 1,8,15,22,29 * *'
+  push:
+    paths: ['dockerfiles/dev-python.Dockerfile', '.github/workflows/dev-python.yml']
+env:
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'mdsumner/gdal-builds'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the (dev-python) Docker image
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker build -f dockerfiles/dev-python.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:dev-python
+      - name: Publish (dev-python)
+        if: github.repository == 'mdsumner/gdal-builds'
+        run: docker push ghcr.io/mdsumner/gdal-builds:dev-python
+
