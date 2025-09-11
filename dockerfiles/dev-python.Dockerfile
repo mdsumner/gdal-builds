@@ -22,5 +22,5 @@ RUN     apt-get install -y --no-install-recommends \
 RUN cd / && python3 -m venv /workenv \
    && . /workenv/bin/activate \
     && python -m pip install uv \
-    && uv pip install icechunk virtualizarr
+    && uv pip install icechunk virtualizarr dask h5py
 
