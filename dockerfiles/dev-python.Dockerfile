@@ -18,7 +18,7 @@ RUN   apt-get update  \
 #RUN apt-get  install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
 #RUN apt-get update && apt-get install -y -V libarrow-dev libparquet-dev libarrow-dataset-dev
 
-RUN Rscript -e "install.packages(c('mirai', 'carrier'))"
+RUN Rscript -e "install.packages(c('mirai', 'carrier', 'reticulate'))"
 
 RUN     apt-get install -y --no-install-recommends \
             python3-dev \
