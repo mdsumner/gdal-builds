@@ -58,9 +58,10 @@ RUN cd / && python3.12 -m venv /workenv \
       && uv pip install arraylake[icechunk]  icechunk polars obstore \
       && uv pip install fastparquet  --no-binary fastparquet \
       && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
-      && uv pip install stacrs odc-stac h5pyd async-tiff imagecodecs \
-      && uv pip install git+https://github.com/zarr-developers/VirtualiZarr@main \
+      && uv pip install stacrs odc-stac h5pyd async-tiff imagecodecs virtualizarr \
       && uv pip install jupyter-rsession-proxy notebook jupyterlab jupyterhub
+
+#&& uv pip install git+https://github.com/zarr-developers/VirtualiZarr@main \
 
 
 
