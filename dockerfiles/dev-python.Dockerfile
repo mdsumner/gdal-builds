@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
-RUN   apt-get update && apt-get-upgrade \
+RUN   apt-get update  \
       &&  apt-get install -y software-properties-common
 
 RUN apt-get install -y -V ca-certificates lsb-release wget
