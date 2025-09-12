@@ -11,7 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN export TZ=Etc/UTC
 
 RUN   apt-get update && apt-get-upgrade \
-      &&  apt-get -y install software-properties-common
+      &&  apt-get install -y software-properties-common
 
 RUN apt-get install -y -V ca-certificates lsb-release wget
 RUN wget https://packages.apache.org/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
