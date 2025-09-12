@@ -18,7 +18,7 @@ RUN wget https://packages.apache.org/artifactory/arrow/$(lsb_release --id --shor
 RUN apt-get  install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
 RUN apt-get update && apt-get install -y -V libarrow-dev libparquet-dev libarrow-dataset-dev
 
-RUN Rscript -e "install.packages(c('mirai', 'carrier', 'purrr', 'dplyr', 'arrow'))
+RUN Rscript -e "install.packages(c('mirai', 'carrier', 'purrr', 'dplyr', 'arrow'))"
 
 RUN     apt-get install -y --no-install-recommends \
             python3-dev \
