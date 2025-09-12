@@ -1,4 +1,4 @@
-FROM rocker/verse
+FROM rocker/tidyverse
 
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.source="https://github.com/mdsumner/gdal-builds" \
@@ -13,12 +13,12 @@ RUN export TZ=Etc/UTC
 RUN   apt-get update  \
       &&  apt-get install -y software-properties-common
 
-RUN apt-get install -y -V ca-certificates lsb-release wget
-RUN wget https://packages.apache.org/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
-RUN apt-get  install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
-RUN apt-get update && apt-get install -y -V libarrow-dev libparquet-dev libarrow-dataset-dev
+#RUN apt-get install -y -V ca-certificates lsb-release wget
+#RUN wget https://packages.apache.org/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+#RUN apt-get  install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+#RUN apt-get update && apt-get install -y -V libarrow-dev libparquet-dev libarrow-dataset-dev
 
-RUN Rscript -e "install.packages(c('mirai', 'carrier', 'purrr', 'dplyr', 'arrow'))"
+RUN Rscript -e "install.packages(c('mirai', 'carrier'))"
 
 RUN     apt-get install -y --no-install-recommends \
             python3-dev \
@@ -31,3 +31,10 @@ RUN cd / && python3 -m venv /workenv \
     && python -m pip install uv \
     && uv pip install icechunk virtualizarr dask h5py
 
+# Clean up
+rm -rf /tmp/downloaded_packages
+rm -rf /var/lib/apt/lists/*
+
+## Strip binary installed lybraries from RSPM
+## https://github.com/rocker-org/rocker-versioned2/issues/340
+strip /usr/local/lib/R/site-library/*/libs/*.so
