@@ -29,7 +29,7 @@ RUN     apt-get install -y --no-install-recommends \
 RUN cd / && python3 -m venv /workenv \
    && . /workenv/bin/activate \
     && python -m pip install uv \
-    && uv pip install icechunk virtualizarr dask h5py kerchunk  ibis-framework[duckdb,examples]
+    && uv pip install icechunk virtualizarr dask h5py kerchunk  ibis-framework[duckdb,examples] h5netcdf netCDF4 scipy zarr
 
 # Clean up
 RUN rm -rf /tmp/downloaded_packages
