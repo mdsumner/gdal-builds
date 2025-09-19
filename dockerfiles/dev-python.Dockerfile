@@ -32,7 +32,7 @@ RUN cd / && python3 -m venv /workenv \
     && uv pip install icechunk virtualizarr dask h5py kerchunk  ibis-framework[duckdb,examples] h5netcdf netCDF4 scipy zarr polars pandas
 
 ## remove this when ibis released
-RUN . /workenv/bin/activate git clone https://github.com/ibis-project/ibis && cd ibis && uv pip install .
+RUN . /workenv/bin/activate && git clone https://github.com/ibis-project/ibis && cd ibis && uv pip install .
 
 # Clean up
 RUN rm -rf /tmp/downloaded_packages
