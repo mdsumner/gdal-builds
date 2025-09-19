@@ -20,7 +20,7 @@ RUN   apt-get update  \
 
 RUN Rscript -e "install.packages(c('mirai', 'carrier', 'reticulate'))"
 
-RUN     apt-get install -y --no-install-recommends \
+RUN     apt-get install -y --no-install-recommends nano \
             python3-dev \
             python3-venv \
             python3-pip \
