@@ -29,8 +29,9 @@ RUN     apt-get install -y --no-install-recommends nano \
 RUN cd / && python3 -m venv /workenv \
    && . /workenv/bin/activate \
     && python -m pip install uv \
-    && uv pip install icechunk dask h5py kerchunk  ibis-framework[duckdb,examples] h5netcdf netCDF4 scipy zarr polars pandas \
-    && uv pip install "git+https://github.com/mdsumner/VirtualiZarr@user-executor"
+    && uv pip install icechunk dask h5py kerchunk  duckdb h5netcdf netCDF4 scipy zarr polars pandas \
+    && uv pip install "git+https://github.com/mdsumner/VirtualiZarr@user-executor" \
+    && uv pip install "git+https://github.com/ibis-project/ibis"
 
 ## remove this when ibis released
 RUN . /workenv/bin/activate && git clone https://github.com/ibis-project/ibis && cd ibis && uv pip install .
