@@ -85,6 +85,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      osmdata \
      palr \
      paws.storage \
+     piggyback \
      pkgbuild \
      plainview \
      polyclip \
