@@ -121,7 +121,6 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      stringr \
      tarchetypes \
      targets \
-     terra \
      terrainmeshr \
      tibble \
      tidync \
@@ -136,6 +135,7 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      yaml
 
 
+Rscript -e 'devtools::install_github(c("rspatial/terra"), force = TRUE)'
 
 Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"))'
 
