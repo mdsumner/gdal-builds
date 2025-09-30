@@ -29,7 +29,7 @@ RUN     apt-get install -y --no-install-recommends nano \
 RUN cd / && python3 -m venv /workenv \
    && . /workenv/bin/activate \
     && python -m pip install uv \
-    && uv pip install icechunk dask h5py kerchunk  duckdb h5netcdf netCDF4 scipy zarr polars pandas pyarrow pyarrow-hotfix \
+    && uv pip install icechunk dask h5py kerchunk  duckdb h5netcdf netCDF4 scipy zarr polars pandas pyarrow pyarrow-hotfix dill \
     && uv pip install "git+https://github.com/mdsumner/VirtualiZarr@user-executor" \
     && uv pip install "git+https://github.com/ibis-project/ibis"
 
