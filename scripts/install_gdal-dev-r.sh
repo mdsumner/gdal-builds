@@ -92,9 +92,11 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
      prettyunits \
      processx \
      progress \
+     pryr \
      purrr \
      PROJ \
      qs \
+     qs2 \
      quadmesh \
      R.utils \
      rbgm \
@@ -142,7 +144,7 @@ Rscript -e 'devtools::install_github(c("hypertidy/whatarelief", "hypertidy/grout
 #"AustralianAntarcticDivision/Grym"
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"))'
 
-Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr"))'
+Rscript -e 'devtools::install_github(c("hypertidy/anglr", "keller-mark/pizzarr", "coolbutuseless/zstdlite"))'
 
 Rscript -e 'BiocManager::install("Rarr", update = FALSE, ask = FALSE)'
 
