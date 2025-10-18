@@ -138,7 +138,8 @@ install2.r --error --skipmissing -n -1 -r "${CRAN_SOURCE}" \
 
 Rscript -e 'devtools::install_github(c("rspatial/terra"), force = TRUE)'
 
-Rscript -e 'devtools::install_github(c("hypertidy/vapour", "hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"))'
+Rscript -e 'devtools::install_github(c( "hypertidy/whatarelief", "hypertidy/grout", "hypertidy/ximage", "hypertidy/sds", "hypertidy/dsn", "hypertidy/controlledburn"))'
+#Rscript -e 'devtools::install_github(c("hypertidy/vapour"))'
 
 #"AustralianAntarcticDivision/Grym"
 Rscript -e 'devtools::install_github(c("AustralianAntarcticDivision/raadfiles", "AustralianAntarcticDivision/raadtools", "AustralianAntarcticDivision/blueant",  "ropensci/bowerbird"))'
