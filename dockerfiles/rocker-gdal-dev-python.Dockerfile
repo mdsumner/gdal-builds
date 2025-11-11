@@ -55,7 +55,7 @@ RUN cd / && python3.12 -m venv /workenv \
       && uv pip install pystac-client cartopy pooch earthaccess \
       && uv pip install geoarrow-pyarrow geoarrow-pandas rpy2 rpy2-arrow kerchunk coiled \
       && uv pip install s3fs planetary.computer dask-expr xstac xpystac tifffile   rechunker \
-      && uv pip install arraylake[icechunk]  icechunk polars obstore \
+      && uv pip install arraylake[icechunk]  icechunk polars obstore rusterize \
       && uv pip install fastparquet  --no-binary fastparquet \
       && uv pip install  stac-geoparquet pyarrow  lonboard  ipytree deltalake  access-nri-intake \
       && uv pip install stacrs odc-stac h5pyd async-tiff imagecodecs virtualizarr virtual-tiff \
