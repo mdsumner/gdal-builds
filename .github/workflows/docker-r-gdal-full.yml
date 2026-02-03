@@ -1,12 +1,17 @@
 name: Docker Image CI - r-gdal-full
 on:
-  workflow_dispatch: null
+  workflow_dispatch: 
   schedule:
-    - cron: '0 3 */2 * *'
+    - cron: '0 3 * * 1'
   push:
     paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
 env:
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+concurrency:
+   group: ${{ github.workflow }}-${{ github.ref }}
+   cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
