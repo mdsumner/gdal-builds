@@ -2,7 +2,7 @@ name: Docker Image CI - rocker-gdal-dev-r
 on:
   workflow_dispatch: null
   schedule:
-    - cron: '0 1 1,8,15,22,29 * *'
+    - cron: '0 1 8,24 * *'
   push:
     paths: ['dockerfiles/rocker-gdal-dev-r.Dockerfile', '.github/workflows/docker-rocker-gdal-dev-r.yml', 'scripts/install_gdal-dev-r.sh']
 env:
