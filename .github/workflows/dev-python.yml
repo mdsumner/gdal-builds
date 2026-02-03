@@ -2,7 +2,7 @@ name: Docker Image CI - dev-python
 on:
   workflow_dispatch: null
   schedule:
-    - cron: '0 2 1,8,15,22,29 * *'
+    - cron: '0 2 16 * *'
   push:
     paths: ['dockerfiles/dev-python.Dockerfile', '.github/workflows/dev-python.yml']
 env:
