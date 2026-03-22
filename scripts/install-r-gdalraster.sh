@@ -21,7 +21,7 @@ Rscript -e 'install.packages(c("Rcpp", "RcppInt64", "nanoarrow", "bit64", "wk", 
 # since it is only for display.
 Rscript -e 'install.packages(c("gt", "knitr", "rmarkdown", "scales", "testthat"))'
 
-Rscript -e 'install.packages("gdalraster", repos = c("https://usdaforestservice.r-universe.dev", "https://cran.r-project.org"), INSTALL_opts = "--install-tests")'
+Rscript -e 'install.packages("gdalraster", repos = c("https://firelab.r-universe.dev", "https://cran.r-project.org"), INSTALL_opts = "--install-tests")'
 
 ## get the artefacts
 mkdir dev-pkgs
