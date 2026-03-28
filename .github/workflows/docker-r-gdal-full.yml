@@ -1,10 +1,10 @@
 name: Docker Image CI - r-gdal-full
 on:
   workflow_dispatch: 
-  schedule:
-    - cron: '0 3 * * 1'
-  push:
-    paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
+  #schedule:
+  #  - cron: '0 3 * * 1'
+  #push:
+  #  paths: ['dockerfiles/r-gdal-full.Dockerfile', '.github/workflows/docker-r-gdal-full.yml', 'scripts/install-r-gdal-full.sh']
 env:
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
